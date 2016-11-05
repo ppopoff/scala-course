@@ -8,3 +8,7 @@ code/project/*
 # idea project files
 code/.idea/
 .idea
+
+# idea files inside textbook project
+ru/textbook/.idea
+en/textbook/.idea
