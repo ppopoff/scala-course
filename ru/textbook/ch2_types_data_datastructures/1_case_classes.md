@@ -29,7 +29,7 @@ Case classes
 
 Литература
 ==========
-Подробнее про `case class`ы вы можете прочитать [здесь][1] и [здесь][2]
+Подробнее про `case class` вы можете прочитать [здесь][1] и [здесь][2]
 (более подробно)
 
 [1]: https://twitter.github.io/scala_school/basics2.html#caseclass
