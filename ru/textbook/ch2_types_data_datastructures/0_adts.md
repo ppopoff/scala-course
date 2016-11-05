@@ -99,5 +99,10 @@
 
 Литература
 ==========
+Неплохо про алгебраические типы данных рассказано, как ни странно в
+[Википедии][1]. Касательно `Scala` есть достаточно доступный [пост][2]
+и [презентация][3], которая, возможно, покажется вам интересной.
+
 [1]: https://en.wikipedia.org/wiki/Algebraic_data_type
-http://tpolecat.github.io/presentations/algebraic_types.html#18
+[2]: https://gleichmann.wordpress.com/2011/01/30/functional-scala-algebraic-datatypes-enumerated-types/
+[3]: http://tpolecat.github.io/presentations/algebraic_types.html#18
