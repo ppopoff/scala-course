@@ -1,0 +1,9 @@
+# vim swap files
+*.sw*
+
+# sbt files
+code/target/*
+code/project/*
+
+# idea project files
+code/.idea/
