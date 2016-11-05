@@ -20,18 +20,29 @@ FunctionN, где N представляет арность. Объектно-о
 Желаем вам дальнейших успехов в освоении этого замечательного языка.
 
 
-Рекомендуемая литература
+Для дальнейшего изучения
 ========================
+Чтобы писать на `Scala` ситльно, обязательно ознакомьтесь со
+[Scala Style Guide][1]. Так же очень вам рекомендую ознакомиться с
+выступлением Мартина Одерски (создателя Scala): [Scala with Style][2] и
+[руководством][3] по стилю от компании Databricks.
+
   - Scala for the Impatient (2nd Edition) by Cay S. Horstmann вы можете
-  найти ее [здесь][1]
+  найти ее [здесь][4]
   - Programming in Scala by Martin Odersky, Lex Spoon & Bill Venners.
   Эта книга по праву может называться `Magnum Opus`. В ней детально
-  излагатся основы языка. [Здесь][2] вы можете ее найти.
+  излагатся основы языка. [Здесь][5] вы можете ее найти.
   
 Если говорить о другой литературе, то на момент создания курса, другие
 авторы еще не успели обновить издания в соответствии с изменениями для
 версии `2.12`. Если к тому времени успеет Bruce Eckel, с его Atomic
 Scala то смело можете знакомиться с этой книгой.
 
-[1]: https://www.amazon.com/Scala-Impatient-2nd-Cay-Horstmann/dp/0134540565/
-[2]: https://www.amazon.com/Programming-Scala-Updated-2-12/dp/0981531687
+
+[1]: http://docs.scala-lang.org/style/
+[2]: https://www.youtube.com/watch?v=kkTFx3-duc8
+[3]: https://github.com/databricks/scala-style-guide
+[4]: https://www.amazon.com/Scala-Impatient-2nd-Cay-Horstmann/dp/0134540565/
+[5]: https://www.amazon.com/Programming-Scala-Updated-2-12/dp/0981531687
+
+
