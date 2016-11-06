@@ -1,4 +1,51 @@
 Задания для главы 2
 ===================
 
-TODO:
+## Ваш персональный список
+Реализуйте ваш персональный список, в виде ADT (Cons, Nil). Список
+должен быть односвязным и иммутабельным. Для списка реализуйте companion
+object, с методом `apply`, который будет позволять конструкцию элементов
+следующим образом: `val myList = MyList(1,2,3,4,5)`.
+
+Для списка должны быть *рекурсивным* образом реализованный следующие
+методы:
+
+    def size: Long
+
+    def isEmpty: Boolean
+
+    def head: A
+    def last: A
+    def headOpt: Option[A]
+    def lastOpt: Option[A]
+    def tail: MyList[A]
+    def init: MyList[A]
+
+    // should return index of given element
+    def indexOf(elem: A): Long
+
+    // Возвращает первые n элементов списка
+    // если n больше
+    def take (n: Int): MyList[A]
+
+    // Возвращает n последних элементов списка
+    def takeRight(n: Int): MyList[A]
+
+    def reverse: MyList[A]
+
+    def zip [B] (that: MyList[B]): List[(A, B)]
+    def zipWithIndex: List[(A, Long)]
+
+Использование различных алгоритмических оптимизацией приветствуется,
+но не является обязательным.
+
+Старайтесь использовать хвостовую рекурсию. В этом вам поможет аннотация
+`@tailrec`, о хвостовом вызове вы можете прочесть [здесь][0].
+
+Неплохой [пост][1], о том как это применено в `Scala`.
+Интересная [статья][2] на сайте `Dr. Dobbs` посвященная хвостовой рекурсии.
+
+[0]: https://en.wikipedia.org/wiki/Tail_call
+[1]: http://blog.richdougherty.com/2009/04/tail-calls-tailrec-and-trampolines.html
+[2]: http://www.drdobbs.com/jvm/tail-call-optimization-and-java/240167044
+
