@@ -88,27 +88,11 @@ Syntax 101
 
 Материалы для дальшейнего изучения
 ==================================
-  - И попробовать `Scala` в вашем
-  [браузере](http://scalatutorials.com/tour/).
-  - Мы так же предлагаем использвоать материалы
-  [Twitter Scala School](http://twitter.github.io/scala_school/).
-  - [Официальная документация](http://docs.scala-lang.org/).
+  - И попробовать `Scala` в вашем[браузере][scala-in-your-browser].
+  - Мы так же предлагаем использвоать материалы [Twitter Scala School][tss],
+    на протяжении знакомства с основными понятиями языка.
+  - [Официальная документация][offdoc].
   
-  Чтобы писать на `Scala` ситльно, обязательно ознакомьтесь со
-  [Scala Style Guide](http://docs.scala-lang.org/style/). Так же очень
-  вам рекомендую ознакомиться с выступлением Мартина Одерски (создателя
-  языка Scala), [Scala with Style](https://www.youtube.com/watch?v=kkTFx3-duc8).
-  
-Рекомендуемая литература
-========================
-  - Scala for the Impatient (2nd Edition) by Cay S. Horstmann вы можете
-  найти ее [здесь](https://www.amazon.com/Scala-Impatient-2nd-Cay-Horstmann/dp/0134540565/)
-  - Programming in Scala by Martin Odersky, Lex Spoon & Bill Venners.
-  Эта книга по праву может называться `Magum Opus`. В ней детально
-  излагатся основы языка. [Здесь](https://www.amazon.com/Programming-Scala-Updated-2-12/dp/0981531687)
-  вы можете ее найти.
-  
-Если говорить о другой литературе, то на момент создания курса, другие
-авторы еще не успели обновить издания в соответствии с изменениями для
-версии `2.12`. Если к тому времени успеет Bruce Eckel, с его Atomic
-Scala то смело можете знакомиться с этой книгой.
+[scala-in-your-browser]: http://scalatutorials.com/tour/
+[tss]: http://twitter.github.io/scala_school/
+[offdoc]: http://docs.scala-lang.org/

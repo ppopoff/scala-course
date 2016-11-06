@@ -73,6 +73,13 @@
                                                             ^
     tellWhatTheLightIs: (tl: TrafficLight)Unit
 
+Так же можно объявлять рекурсивыне структуры, для этой цели следует
+использовать `case class`:
+
+    sealed trait Tree
+    case class Leaf(value: Int) extends Tree
+    case class Node(l: Tree, r: Tree) extends Tree
+
 Конечно, мы можем предположить что наш светофор никогда не сломается, и
 отмахнуться от ошибки:
 

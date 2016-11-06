@@ -58,6 +58,35 @@
 поэтому можно спокойно передавать пустой список, если что-то пойдет не
 так. Дополнительный контейнер не нужен.
 
+## ::Nil
+Ранее мы рассматривали следующий способ конструирования списков:
+
+    val mylist = 1 :: 2 :: 3 :: 4 :: 5 :: Nil
+
+`::` не является оператором, встроенным в язык. Это имя класса/метода,
+который обычно называется `Cons`. Более того, `::` это один из редких
+операторов Scala, который обладает правой ассоциативностью, поэтому,
+увидев `Nil` справа, компилятор догадывается что мы конструируем список
+и вызывает меетод `::` получив аргумент в который, компилятор в
+состоянии определить тип списка. Более подробно об этом написано в книге
+Одерски `Programming in scala`. К тому же использование `Nil` более
+[идиоматично][5], чем использование `List.empty` или `List()`
+
+    scala> println (Nil == List())
+    true
+
+    scala> println (Nil eq List())
+    true
+
+    scala> println (Nil equals List())
+    true
+
+    scala> System.identityHashCode(Nil)
+    374527572
+
+    scala> System.identityHashCode(List())
+    374527572
+ 
  
 Литература
 ==========
@@ -71,3 +100,4 @@
 [2]: http://alvinalexander.com/scala/how-create-scala-list-range-fill-tabulate-constructors
 [3]: http://alvinalexander.com/scala/how-add-elements-to-a-list-in-scala-listbuffer-immutable
 [4]: http://www.scala-lang.org/api/current/scala/collection/immutable/List.html
+[5]: http://stackoverflow.com/questions/5981850/scala-nil-vs-list
