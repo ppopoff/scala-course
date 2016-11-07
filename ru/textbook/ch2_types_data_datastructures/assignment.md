@@ -36,5 +36,10 @@ object, с методом `apply`, который будет позволять 
     def zip [B] (that: MyList[B]): List[(A, B)]
     def zipWithIndex: List[(A, Long)]
 
+    def append(that: MyList[A]): List[A]
+
+    // операция которая дописывает в начало списка.
+    def cons(a: A): List[A]
+
 Использование различных алгоритмических оптимизацией приветствуется,
 но не является обязательным.
