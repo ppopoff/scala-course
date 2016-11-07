@@ -10,14 +10,14 @@
     // Пример взят из реальной жизни.
     object Weekday {
       val Monday = 0
-      ... 
+      ...
       val Sunday = 6
     }
 
 А потом пытаются использовать это так как перечисление из мира `Java`
 
     if (weekday == Weekday.Friday) {
-       stop(wearing, Tie) 
+       stop(wearing, Tie)
     }
 
 А что, если где-то глубоко случится "непоправимое"? И кто-то забудет о
@@ -46,7 +46,7 @@
 объекта существует поддержка `equals` и `hashcode`, сериализация
 по-умолчанию и предопределенная реализация `toString`.
 
-## О слове Sealed 
+## О слове Sealed
 Существует в `Scala` такое ключевое слово, как `sealed` и делает оно
 следующее: запирает структуру данных от наследования вне модуля
 компиляции (compilation unit). В нашем случае это файл. Зачем это нужно?
@@ -73,7 +73,7 @@
                                                             ^
     tellWhatTheLightIs: (tl: TrafficLight)Unit
 
-Так же можно объявлять рекурсивыне структуры, для этой цели следует
+Так же можно объявлять рекурсивные структуры, для этой цели следует
 использовать `case class`:
 
     sealed trait Tree
@@ -113,3 +113,4 @@
 [1]: https://en.wikipedia.org/wiki/Algebraic_data_type
 [2]: https://gleichmann.wordpress.com/2011/01/30/functional-scala-algebraic-datatypes-enumerated-types/
 [3]: http://tpolecat.github.io/presentations/algebraic_types.html#18
+
