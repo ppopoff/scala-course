@@ -21,3 +21,4 @@
 [curry-1]: https://twitter.github.io/scala_school/pattern-matching-and-functional-composition.html#curryvspartial
 
 [fun-comp-0]: https://twitter.github.io/scala_school/pattern-matching-and-functional-composition.html#composition
+

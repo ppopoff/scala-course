@@ -5,7 +5,7 @@
 чистой функции (pure function), [side-effect][1].
 
 Про чистые функции замечательно рассказано в статье
-[The Definition of "Pure Function"][2], а так же в ее [продолжении][3]. 
+[The Definition of "Pure Function"][2], а так же в ее [продолжении][3].
 Все достаточно понятно, просто и разжевано.
 
 Основные концепции изложены тем же автором ранее, в следующих статьях:
@@ -23,3 +23,4 @@
 [5]: http://alvinalexander.com/scala/how-to-create-scala-methods-no-side-effects-pure-functions
 [6]: http://alvinalexander.com/scala/scala-idiom-immutable-code-functional-programming-immutability
 [7]: http://alvinalexander.com/scala/scala-idiom-methods-functions-no-side-effects
+
