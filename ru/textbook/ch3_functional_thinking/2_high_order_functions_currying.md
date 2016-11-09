@@ -2,11 +2,11 @@
 ======================================
 
 ## Введение
-Как вы могли заметить ранее, Существует два способа для
-[укзания типа][0] функции в `Scala`:
+Как вы могли заметить ранее, существует два способа [укзания типа][0]
+функций в `Scala`:
 
- - объектно-ориентированный `f: Function2[Int, String, String]`
- - функциональный, `f: (Int, String) => String`
+ - с использованием дженериков: `f: Function2[Int, String, String]`
+ - функциональный: `f: (Int, String) => String`
 
 Использование конкретного типа зависит от ситуации. Однако, что в
 первом, что во втором случае, тип функции сложно читать. Рекомендуется
@@ -114,7 +114,6 @@ TODO: провести аналогии с явовскими замыакани
     f: Int => String => Boolean => Double
 
 
-
 ## Замыкания (Closures)
 
 
@@ -129,7 +128,6 @@ TODO: провести аналогии с явовскими замыакани
 
 [4]: https://en.wikipedia.org/wiki/Function_composition_(computer_science)
 [5]: https://twitter.github.io/scala_school/pattern-matching-and-functional-composition.html#composition
-
 
 [curry-0]: https://en.wikibooks.org/wiki/Scala/Currying
 [curry-1]: https://twitter.github.io/scala_school/pattern-matching-and-functional-composition.html#curryvspartial
