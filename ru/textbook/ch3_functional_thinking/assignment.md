@@ -23,3 +23,5 @@
     // определена данная функция
     def collect(pfun: PartialFunction[A,B]): MyList[B]
 
+## Каррирование
+TODO:
