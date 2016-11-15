@@ -85,4 +85,3 @@ Syntax 101
 [sicp]: https://en.wikipedia.org/wiki/Structure_and_Interpretation_of_Computer_Programs
 [lists]: https://www.tutorialspoint.com/scala/scala_lists.htm
 [seq_list]: http://stackoverflow.com/a/10866807/1655785
-
