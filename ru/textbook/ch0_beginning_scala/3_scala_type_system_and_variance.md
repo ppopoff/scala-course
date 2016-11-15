@@ -20,7 +20,7 @@
 также присутствуют в `Scala`, подробнее [здесь][value-types].
 
 ## Псевдонимы типов (Type aliases)
-По возможности используйте псевднонимы типов, там где это возможно.
+По возможности используйте псевдонимы типов, там где это возможно.
 Это делает ваш код более читаемым, согласитесь что `Map[Username, Key]`
 выглядит лучше, чем `Map[String, String]`.
 
@@ -28,3 +28,4 @@
 [type-basics]: https://twitter.github.io/scala_school/type-basics.html
 [types-of-types]: http://ktoso.github.io/scala-types-of-types/
 [value-types]: http://docs.scala-lang.org/overviews/core/value-classes.html
+
