@@ -256,8 +256,9 @@
     // res8: String = Hello Robert
 
 Из всех статей, посвященный каррированию, мы рекомендуем [эту][curry-1].
-Достаточно неплохо, карирование описано [здесь][curry-2].
-Про то как каррирование работает в байткоде написано [здесь][curry-4].
+Достаточно неплохо, карирование описано [здесь][curry-2] и
+[здесь][curry-5]. Про то как каррирование работает в байткоде написано
+[здесь][curry-4].
 
 
 ## Замыкания (Closures)
@@ -281,6 +282,7 @@
 [curry-2]: https://en.wikibooks.org/wiki/Scala/Currying
 [curry-3]: http://docs.scala-lang.org/tutorials/tour/currying.html
 [curry-4]: http://alvinalexander.com/scala/scala-curried-partially-applied-functions-how-compiled-scalac
+[curry-5]:  http://fruzenshtein.com/scala-currying-functions/
 
 [closures-0]: http://alvinalexander.com/scala/how-to-use-closures-in-scala-fp-examples
 [closures-1]: http://www.slideshare.net/knoldus/functions-closures
