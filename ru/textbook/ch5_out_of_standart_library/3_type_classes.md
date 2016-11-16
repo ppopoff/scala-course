@@ -62,3 +62,4 @@
 [tc-0]: https://engineering.sharethrough.com/blog/2015/05/18/type-classes-for-the-java-engineer/
 [open-closed]: https://en.wikipedia.org/wiki/Open/closed_principle
 [simulacrum]: https://github.com/mpilquist/simulacrum
+
