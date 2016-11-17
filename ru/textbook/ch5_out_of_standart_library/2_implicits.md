@@ -1,12 +1,61 @@
 Имплиситы
 =========
-
-implicit val
-============
-
-Имплиситы + каррирование
-========================
+Ключевым словом `implicit` в `Scala` помечается множество различных
+сущностей, которые неявным образом передаются, конвертируются, или
+добавляют новое поведение (ведут себя как `extension methods`).
 
 
-Имплиситы внутри лямбды
-=======================
+## Типы имплиситов
+
+ - Неявные параметры. Самый простой и доступный случай, это неявные
+   параметры. Про них можно прочесть [здесь][parameters]
+ - Неявные преобразования (implicit conversions). О них вы можете
+   прочесть [здесь][conversions] и [здесь][conversions-2].
+ - Методы-расширения ([материалы][classes])
+
+### Поиск имплиситов
+О том где и `Scala` ищет имплиситы, вы можете прочесть [здесь][lookup].
+
+
+## Имплиситы, каррирование и лямбды
+В Play Framework, очень популярна следующая конструкция:
+
+    Action { implicit request =>
+      Ok("ok: [" + request + "]")
+    }
+
+Итак, давайте разберемся с тем, что здесь происходит. Код, записанный
+выше, можно переписать так:
+
+    Action { request =>
+      implicit val r = request
+      Ok("ok: [" + request + "]")
+    }
+
+Сигнатура класса `Ok`, приблизительно, выглядит следующим образом:
+
+    class Ok(message: String)(implicit r: Request).
+
+Ключевое слово `implicit`, может использоваться только для *последнего*
+каррированного аргумента функции. Оно указывает место, в которое возможно
+подставить неявный параметр. Без имплиситов код будет выглядеть следующим образом:
+
+    Action { request =>
+      Ok("ok: [" + request + "]")(request)
+    }
+
+
+## В заключение
+Использование имплиситов в вашем коде является крайне нежелательным.
+Данный инструмент, в первую очередь, предназначается для дизайнеров
+библиотек, а так же для разработчиков предметно-ориентированных языков
+(Domain Specific Languages). Достаточно старая [статья][pimp-my-lib],
+поясняющая сущность данного подхода.
+
+[pimp-my-lib]: http://www.artima.com/weblogs/viewpost.jsp?thread=179766
+[conversions]: http://docs.scala-lang.org/tutorials/tour/implicit-conversions
+[conversions-2]: http://baddotrobot.com/blog/2015/07/14/scala-implicit-functions/
+[parameters]: http://baddotrobot.com/blog/2015/07/03/scala-implicit-parameters/
+[classes]: http://docs.scala-lang.org/overviews/core/implicit-classes.html
+[lookup]: http://docs.scala-lang.org/tutorials/FAQ/finding-implicits.html
+
