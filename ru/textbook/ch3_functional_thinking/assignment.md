@@ -28,8 +28,8 @@
 ## Каррирование
 Добавить к вашему списку следующие функции:
 
-    def foldl [B] (z: B) (operator: (B, A) => B): B
-    def foldr [B] (z: B) (operator: (A, B) => B): B
+    def foldLeft [B] (z: B) (operator: (B, A) => B): B
+    def foldRight [B] (z: B) (operator: (A, B) => B): B
 
 Используя указанные выше функции, в отдельном файле реализовать
 функции `reduceLeft` и `reduceRight` для целочисленного и вещественного
