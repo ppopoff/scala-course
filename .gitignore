@@ -12,3 +12,7 @@ code/.idea/
 # idea files inside textbook project
 ru/textbook/.idea
 en/textbook/.idea
+
+# generated html book
+assembly/book.html
+
