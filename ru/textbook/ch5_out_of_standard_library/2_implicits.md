@@ -10,7 +10,7 @@
  - Неявные параметры. Самый простой и доступный случай, это неявные
    параметры. Про них можно прочесть [здесь][parameters]
  - Неявные преобразования (implicit conversions). О них вы можете
-   прочесть [здесь][conversions] и [здесь][conversions-2].
+   прочесть [здесь][impl-conversions] и [здесь][impl-conversions-2].
  - Методы-расширения ([материалы][classes])
 
 ### Поиск имплиситов
@@ -53,8 +53,8 @@
 поясняющая сущность данного подхода.
 
 [pimp-my-lib]: http://www.artima.com/weblogs/viewpost.jsp?thread=179766
-[conversions]: http://docs.scala-lang.org/tutorials/tour/implicit-conversions
-[conversions-2]: http://baddotrobot.com/blog/2015/07/14/scala-implicit-functions/
+[impl-conversions]: http://docs.scala-lang.org/tutorials/tour/implicit-conversions
+[impl-conversions-2]: http://baddotrobot.com/blog/2015/07/14/scala-implicit-functions/
 [parameters]: http://baddotrobot.com/blog/2015/07/03/scala-implicit-parameters/
 [classes]: http://docs.scala-lang.org/overviews/core/implicit-classes.html
 [lookup]: http://docs.scala-lang.org/tutorials/FAQ/finding-implicits.html

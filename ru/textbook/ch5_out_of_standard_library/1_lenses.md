@@ -58,9 +58,9 @@
 
 Литература
 ==========
-Более наглядно, использование линз в `shapeless` показано [здесь][1].
+Более наглядно, использование линз в `shapeless` показано [здесь][lenses-smpl].
 
-[1]: https://github.com/milessabin/shapeless/blob/master/examples/src/main/scala/shapeless/examples/lenses.scala
+[lenses-smpl]: https://github.com/milessabin/shapeless/blob/master/examples/src/main/scala/shapeless/examples/lenses.scala
 [scalazl]:  http://eed3si9n.com/learning-scalaz/Lens.html
 [monocle]: https://github.com/julien-truffaut/Monocle
 

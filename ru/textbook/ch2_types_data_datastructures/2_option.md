@@ -86,12 +86,12 @@ Options
 Литература
 ==========
 [Здесь][opt-guide] очень хорошо описано, как лучше использовать `Option`
-Пускай многое в этом [видео][1] вам не будет понятно, вернитесь к нему
-позже, когда понимание `Scala` станет немного лучше.
+Пускай многое в этом [видео][opt-video-1] вам не будет понятно, вернитесь
+к нему позже, когда понимание `Scala` станет немного лучше.
 
-[Шпаргалка][2], которая, возможно, будет вам полезной.
+[Шпаргалка][opt-cheat-sheet], которая, возможно, будет вам полезной.
 
 [opt-guide]: http://danielwestheide.com/blog/2012/12/19/the-neophytes-guide-to-scala-part-5-the-option-type.html
-[1]: https://www.youtube.com/watch?v=gVXt1RG_yN0
-[2]: http://blog.tmorris.net/posts/scalaoption-cheat-sheet/
+[opt-video-1]: https://www.youtube.com/watch?v=gVXt1RG_yN0
+[opt-cheat-sheet]: http://blog.tmorris.net/posts/scalaoption-cheat-sheet/
 

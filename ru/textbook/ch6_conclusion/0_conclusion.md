@@ -22,15 +22,16 @@
 Для дальнейшего изучения
 ========================
 Чтобы писать на `Scala` стильно, обязательно ознакомьтесь со
-[Scala Style Guide][1]. Так же очень вам рекомендую ознакомиться с
-выступлением Мартина Одерского (создателя Scala): [Scala with Style][2] и
-[руководством][3] по стилю от компании `Databricks`.
+[Scala Style Guide][style-guide]. Так же очень вам рекомендую ознакомиться с
+выступлением Мартина Одерского (создателя Scala):
+[Scala with Style][scala-with-style] и [руководством][databricks-guide] по
+стилю от компании `Databricks`.
 
   - Scala for the Impatient (2nd Edition) by Cay S. Horstmann вы можете
-  найти ее [здесь][4]
+  найти ее [здесь][scala-impatient]
   - Programming in Scala by Martin Odersky, Lex Spoon & Bill Venners.
   Эта книга по праву может называться `Magnum Opus`. В ней детально
-  излагается основы языка. [Здесь][5] вы можете ее найти.
+  излагается основы языка. [Здесь][magnum-opus] вы можете ее найти.
 
 Если говорить о другой литературе, то на момент создания курса, другие
 авторы еще не успели обновить издания в соответствии с изменениями для
@@ -38,9 +39,9 @@
 Scala то смело можете знакомиться с этой книгой.
 
 
-[1]: http://docs.scala-lang.org/style/
-[2]: https://www.youtube.com/watch?v=kkTFx3-duc8
-[3]: https://github.com/databricks/scala-style-guide
-[4]: https://www.amazon.com/Scala-Impatient-2nd-Cay-Horstmann/dp/0134540565/
-[5]: https://www.amazon.com/Programming-Scala-Updated-2-12/dp/0981531687
+[style-guide]: http://docs.scala-lang.org/style/
+[scala-with-style]: https://www.youtube.com/watch?v=kkTFx3-duc8
+[databricks-guide]: https://github.com/databricks/scala-style-guide
+[scala-impatient]: https://www.amazon.com/Scala-Impatient-2nd-Cay-Horstmann/dp/0134540565/
+[magnum-opus]: https://www.amazon.com/Programming-Scala-Updated-2-12/dp/0981531687
 

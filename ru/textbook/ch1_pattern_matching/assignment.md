@@ -42,12 +42,14 @@
 ==========
 Старайтесь использовать хвостовую рекурсию, там где есть такая
 возможность. В этом вам поможет аннотация `@tailrec`. О хвостовом вызове
-вы можете прочесть [здесь][0].
+вы можете прочесть [здесь][tail-call].
 
-[пост][1] и [пост][3], о том как это применено в `Scala`. Интересная статья
-на сайте [Dr. Dobbs][2] посвященная хвостовой рекурсии.
+[пост][trampolines] и [пост][scala-rec-fun], о том как это применено в `Scala`.
+Интересная статья на сайте [Dr. Dobbs][tcall-opt] посвященная оптимизации
+хвостовой рекурсии для JVM.
 
-[0]: https://en.wikipedia.org/wiki/Tail_call
-[1]: http://blog.richdougherty.com/2009/04/tail-calls-tailrec-and-trampolines.html
-[2]: http://www.drdobbs.com/jvm/tail-call-optimization-and-java/240167044
-[3]: http://fruzenshtein.com/scala-recursive-function/
+[tail-call]: https://en.wikipedia.org/wiki/Tail_call
+[trampolines]: http://blog.richdougherty.com/2009/04/tail-calls-tailrec-and-trampolines.html
+[scala-rec-fun]: http://fruzenshtein.com/scala-recursive-function/
+[tcall-opt]: http://www.drdobbs.com/jvm/tail-call-optimization-and-java/240167044
+

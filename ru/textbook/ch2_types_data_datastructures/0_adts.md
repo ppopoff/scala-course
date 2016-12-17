@@ -107,10 +107,11 @@
 Литература
 ==========
 Неплохо про алгебраические типы данных рассказано, как ни странно в
-[Википедии][1]. Касательно `Scala` есть достаточно доступный [пост][2]
-и [презентация][3], которая, возможно, покажется вам интересной.
+[Википедии][adt-wiki]. Касательно `Scala` есть достаточно доступный
+[пост][scala-adt] и [презентация][scala-adt-2], которая, возможно,
+покажется вам интересной.
 
-[1]: https://en.wikipedia.org/wiki/Algebraic_data_type
-[2]: https://gleichmann.wordpress.com/2011/01/30/functional-scala-algebraic-datatypes-enumerated-types/
-[3]: http://tpolecat.github.io/presentations/algebraic_types.html#18
+[adt-wiki]: https://en.wikipedia.org/wiki/Algebraic_data_type
+[scala-adt]: https://gleichmann.wordpress.com/2011/01/30/functional-scala-algebraic-datatypes-enumerated-types/
+[scala-adt-2]: http://tpolecat.github.io/presentations/algebraic_types.html#18
 

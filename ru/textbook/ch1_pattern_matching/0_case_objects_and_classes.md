@@ -3,7 +3,7 @@ Case classes & Case objects
 
 Из предыдущей главы вы узнали что собой представляют `object` и `class`.
 В `Scala` существуют особые формы классов и объектов -- те, которые
-поддерживают операцию сопоставления с образцом ([pattern matching][0]).
+поддерживают операцию сопоставления с образцом ([pattern matching][pm-wiki]).
 Более подробно об операции сопоставления с образцом вы узнаете далее
 в этой главе.
 
@@ -33,10 +33,10 @@ Case classes & Case objects
 
 Литература
 ==========
-Подробнее про `case class` вы можете прочитать [здесь][1] и [здесь][2]
-(более подробно)
+Подробнее про `case class` вы можете прочитать [здесь][case-class] и
+[здесь][case-class-tutor] (более подробно)
 
-[0]: https://en.wikipedia.org/wiki/Pattern_matching
-[1]: https://twitter.github.io/scala_school/basics2.html#caseclass
-[2]: http://docs.scala-lang.org/tutorials/tour/case-classes.html
+[pm-wiki]: https://en.wikipedia.org/wiki/Pattern_matching
+[case-class]: https://twitter.github.io/scala_school/basics2.html#caseclass
+[case-class-tutor]: http://docs.scala-lang.org/tutorials/tour/case-classes.html
 

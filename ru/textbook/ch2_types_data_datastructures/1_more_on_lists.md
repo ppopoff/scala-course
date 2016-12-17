@@ -91,14 +91,15 @@
 Литература
 ==========
 Более подробно о списках и других типах коллекций, вы можете прочитать
-на сайте [Twitter Scala School][0]. У Alvin Alexander существует ряд
-неплохих туториалов про списки, [здесь][1] [здесь][2] и [здесь][3].
-Официальная [документация][4] всегда будет кстати.
+на сайте [Twitter Scala School][tschool-col]. У Alvin Alexander существует ряд
+неплохих туториалов про списки, [здесь][aal1] [здесь][aal2] и [здесь][aal3].
+Официальная [документация][list-doc] всегда будет кстати. О том, как
+идиоматично обозначать пустой список можете почитать [здесь][empty-list]
 
-[0]: https://twitter.github.io/scala_school/collections.html
-[1]: http://alvinalexander.com/scala/scala-list-class-examples
-[2]: http://alvinalexander.com/scala/how-create-scala-list-range-fill-tabulate-constructors
-[3]: http://alvinalexander.com/scala/how-add-elements-to-a-list-in-scala-listbuffer-immutable
-[4]: http://www.scala-lang.org/api/current/scala/collection/immutable/List.html
-[5]: http://stackoverflow.com/questions/5981850/scala-nil-vs-list
+[tschool-col]: https://twitter.github.io/scala_school/collections.html
+[aal1]: http://alvinalexander.com/scala/scala-list-class-examples
+[aal2]: http://alvinalexander.com/scala/how-create-scala-list-range-fill-tabulate-constructors
+[aal3]: http://alvinalexander.com/scala/how-add-elements-to-a-list-in-scala-listbuffer-immutable
+[list-doc]: http://www.scala-lang.org/api/current/scala/collection/immutable/List.html
+[empty-list]: http://stackoverflow.com/questions/5981850/scala-nil-vs-list
 

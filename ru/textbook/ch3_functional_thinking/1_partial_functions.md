@@ -1,13 +1,14 @@
 Частичные функции
 =================
-Частичные функции ([partial functions][0]), это функции определенные на
-некоем подмножестве допустимых входных данных. В [этой][1] статье,
+Частичные функции ([partial functions][pf-wiki]), это функции определенные на
+некоем подмножестве допустимых входных данных. В [этой][pf-no-phd] статье,
 данное явление очень хорошо и понятно описано.
 
 Так же, менее подробно частичные функции рассмотрены на
-[Scala School][2] и [блоге][3] Alvin Alexander.
+[Scala School][ss-pf] и [блоге][aa-pf] Alvin Alexander.
 
-[0]: https://en.wikipedia.org/wiki/Partial_function
-[1]: http://blog.bruchez.name/2011/10/scala-partial-functions-without-phd.html
-[2]: https://twitter.github.io/scala_school/pattern-matching-and-functional-composition.html#PartialFunction
-[3]: http://alvinalexander.com/scala/how-to-define-use-partial-functions-in-scala-syntax-examples
+[pf-wiki]: https://en.wikipedia.org/wiki/Partial_function
+[pf-no-phd]: http://blog.bruchez.name/2011/10/scala-partial-functions-without-phd.html
+[ss-pf]: https://twitter.github.io/scala_school/pattern-matching-and-functional-composition.html#PartialFunction
+[aa-pf]: http://alvinalexander.com/scala/how-to-define-use-partial-functions-in-scala-syntax-examples
+

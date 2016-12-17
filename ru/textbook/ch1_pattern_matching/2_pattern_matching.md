@@ -21,11 +21,11 @@
     // равноценно коду выше
     val myArray = Array.apply(2100, 2099)
 
-Более подробно, о методе `apply` написано на [Twitter Scala School][0]
+Более подробно, о методе `apply` написано на [Twitter Scala School][apply]
 
 ### Извлечение данных из объектов
 Аналогично методу `apply` существуют методы `unapply` и `unapplySeq`.
-Подробно об экстракторах, вы можете прочитать [здесь][1].
+Подробно об экстракторах, вы можете прочитать [здесь][unapply].
 
 
 ## Сопоставление с образцом
@@ -35,14 +35,15 @@
 
 Обязательно посмотрите это [видео][video-tutorial]. Здесь подробно
 рассказывается о том как выполняется конструирование структур данных,
-извлечение из них данных, а так же об операции сопоставления с образцом
+извлечение из них данных, а так же об операции сопоставления с образцом.
+Так же рекомендуем вам ознакомиться со следующим [туториалом][pm-tutor].
 
 Как вы уже наверное заметили, в предыдущем разделе, оператор связывания
 позволяет так же сопоставлять с образцом.
 
 [video-tutorial]: https://www.youtube.com/watch?v=1vxIRkYZfmc
 
-[0]: https://twitter.github.io/scala_school/basics2.html#apply
-[1]: http://docs.scala-lang.org/tutorials/tour/extractor-objects.html
-[2]: http://docs.scala-lang.org/tutorials/tour/pattern-matching
+[apply]: https://twitter.github.io/scala_school/basics2.html#apply
+[unapply]: http://docs.scala-lang.org/tutorials/tour/extractor-objects.html
+[pm-tutor]: http://docs.scala-lang.org/tutorials/tour/pattern-matching
 

@@ -166,9 +166,9 @@ Scala язык объектно-ориентированный. Да, с под�
 
 Литература
 ==========
-[Раздел][1] wiki-книги о Scala, посвященный кортежам.
+[Раздел][scala-wiki-tuples] wiki-книги о Scala, посвященный кортежам.
 
-[1]: https://en.wikibooks.org/wiki/Scala/Tuples
+[scala-wiki-tuples]: https://en.wikibooks.org/wiki/Scala/Tuples
 [convolution]: https://en.wikipedia.org/wiki/Convolution_(computer_science)
 [tuples_in_haskell]: http://stackoverflow.com/questions/15558278/how-to-get-nth-element-from-a-10-tuple-in-haskell
 [tuples_in_sml]: http://www.cs.cornell.edu/courses/cs312/2004fa/lectures/lecture3.htm

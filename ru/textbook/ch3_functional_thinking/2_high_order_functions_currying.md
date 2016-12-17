@@ -2,8 +2,8 @@
 ==================================================
 
 ## Введение
-Как вы могли заметить ранее, существует два способа [указания типа][0]
-функций в `Scala`:
+Как вы могли заметить ранее, существует два способа
+[указания типа][types-fun-vals] функций в `Scala`:
 
  - с использованием Generic: `f: Function2[Int, String, String]`
  - функциональный: `f: (Int, String) => String`
@@ -28,12 +28,12 @@
 
 ## О хороших функцияx и композиции
 В лямбда-исчислении, функция должна принимать один аргумент и возвращать
-один аргумент. Собственно, функция должна иметь [арность][2] 1. Поэтому в
+один аргумент. Собственно, функция должна иметь [арность][arity] 1. Поэтому в
 некоторых функциональных языках отсутствуют функции, `теоретически` принимающие
 более одного аргумента. Однако пользователи этого не замечают. Далее мы будем
 рассказывать о функциях с арностью 1, в виду наличия у них особых свойств.
 
-Композиция функций ([function composition][4]) это простейший и основной
+Композиция функций ([function composition][fun-comp]) это простейший и основной
 способ комбинирования функций, основанный размещении функций таким
 образом, что выход одной функции, является входом для другой. Давайте
 рассмотрим две простые функции:
@@ -268,12 +268,12 @@
 
 Литература
 ==========
-[0]: http://docs.scala-lang.org/style/types.html#function-values
-[1]: https://en.wikipedia.org/wiki/Arity
-[2]: http://twitter.github.io/scala_school/pattern-matching-and-functional-composition.html#composition
+[types-fun-vals]: http://docs.scala-lang.org/style/types.html#function-values
+[arity]: https://en.wikipedia.org/wiki/Arity
+[ss-pm]: http://twitter.github.io/scala_school/pattern-matching-and-functional-composition.html#composition
 
-[4]: https://en.wikipedia.org/wiki/Function_composition_(computer_science)
-[5]: https://twitter.github.io/scala_school/pattern-matching-and-functional-composition.html#composition
+[fun-comp]: https://en.wikipedia.org/wiki/Function_composition_(computer_science)
+[pm-fun-comp]: https://twitter.github.io/scala_school/pattern-matching-and-functional-composition.html#composition
 
 [underscore-syntax]: http://stackoverflow.com/a/7678951/1655785
 
