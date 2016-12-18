@@ -22,10 +22,11 @@
 ## Псевдонимы типов (Type aliases)
 По возможности используйте псевдонимы типов, там где это возможно.
 Это делает ваш код более читаемым, согласитесь что `Map[Username, Key]`
-выглядит лучше, чем `Map[String, String]`.
+выглядит лучше, чем `Map[String, String]`. Больше примеров вы можете найти
+[здесь][type-aliases], просто промотайте чуть ниже до раздела с примерами.
 
 [variance]: https://blog.codecentric.de/en/2015/03/scala-type-system-parameterized-types-variances-part-1/
 [type-basics]: https://twitter.github.io/scala_school/type-basics.html
 [types-of-types]: http://ktoso.github.io/scala-types-of-types/
 [value-types]: http://docs.scala-lang.org/overviews/core/value-classes.html
-
+[type-aliases]: http://www.scala-lang.org/files/archive/spec/2.12/04-basic-declarations-and-definitions.html#type-declarations-and-type-aliases
