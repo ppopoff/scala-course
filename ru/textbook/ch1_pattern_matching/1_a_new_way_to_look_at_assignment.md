@@ -18,7 +18,7 @@
     first: Int = 1
     rest: List[Int] = List(2, 3, 4, 5)
 
-И списками тоже:
+Аналогичные операции мы можем провести и с `case class`ами :
 
     case class Person(name: String, age: Int)
 
