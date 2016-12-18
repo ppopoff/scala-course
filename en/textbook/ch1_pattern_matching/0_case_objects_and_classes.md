@@ -1,15 +1,12 @@
 Case classes & Case objects
 ===========================
 
-Из предыдущей главы вы узнали что собой представляют `object` и `class`.
-В `Scala` существуют особые формы классов и объектов -- те, которые
-поддерживают операцию сопоставления с образцом ([pattern matching][pm-wiki]).
-Более подробно об операции сопоставления с образцом вы узнаете далее
-в этой главе.
+From the previous chapter you learned what `objects` and `classes` are.
+`Scala` has a special form of classes that supports [pattern matching][pm-wiki].
+You will learn more about pattern matching further this chapter.
 
-На `case classes` можно смотреть как за записи в функциональных языках,
-или как неизменяемые (immutable) java beans, выглядят они следующим
-образом:
+You may consider `case clases` as a records in functional languages. Or you
+may treat them as immutable java beans. That's how they look like:
 
     case class Monster(health: Int = 100,
                        wearpon: Wearpon = Claws,
@@ -18,23 +15,22 @@ Case classes & Case objects
     val richard = Monster(250, Handgun, "Richard")
 
 
-Экземпляр данного класса может быть использован для сопоставления с
-образцом, для него определены `equals` и `hashcode`, сериализация и
-`toString`. Также он является наследником трейта `Product`. Аналогичным
-образом себя ведут и `case objects`
+An instance of given class can be used for pattern matching. It has `equals` and
+`hashcode` defined. It also supports serialization and contains predefined
+`toString`. It is also a subtype of trait `Product`. Case objects behave the
+same way (except that they don't accept input parameters).
 
-Для каждого `case class` существует объект-компаньон (companion object),
-который содержит метод `apply`. Поэтому для создания `case class` не
-требуется ключевое слово `new`.
+There's a companion object for each `case class`. The companion contains `apply`
+method. That's why you don't need `new` keyword to create an instance of a
+`case class`.
 
-И да, у `case class` есть замечательный метод `copy`. Многие из нас,
-и я в том числе, городили огромное количество `update` методов по
-незнанию. В `case class` есть метод `copy` и им надо пользоваться.
+Every `case class` has an amazing `copy` method. Many of us created a countless
+`update` methods instead of using builtin method.
 
-Литература
-==========
-Подробнее про `case class` вы можете прочитать [здесь][case-class] и
-[здесь][case-class-tutor] (более подробно)
+Further reading
+===============
+More about `case class` you can read [here][case-class] and
+[here][case-class-tutor] (more detailed)
 
 [pm-wiki]: https://en.wikipedia.org/wiki/Pattern_matching
 [case-class]: https://twitter.github.io/scala_school/basics2.html#caseclass

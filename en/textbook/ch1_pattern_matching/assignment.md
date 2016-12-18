@@ -1,52 +1,49 @@
-Задания для главы 1
-===================
+Assignment for Chapter 1
+========================
 
-После выполнения данной главы вам предлагается решить три небольших
-задачи. Для каждой из данных задач предполагается рекурсивное решение с
-использованием сопоставления с образцом (pattern-matching).
+Here you will master recursion and pattern matching. There's no place to tell
+about the recursion, because we expect that you learned it in high-school.
+All of those tasks should be solved recursively with help of pattern matching.
 
-## Задача 1
-Требуется подсчитать количество вхождений подстроки в заданную строку.
-Для следующей функции:
+## Exercise 1
+You should an sub-string entrance count for given string. For given function:
 
     def substringCount(s: String, sub: String): Int = ???
 
-ожидается следующий вывод:
+the following output is expected:
 
     substringCount("catcowcat", "cat") -> 2
     substringCount("catcowcat", "c")   -> 3
     substringCount("abracadabra", "z") -> 0
 
-Однако, для следующего случая:
+and for the following case:
 
     substringCount("aaaaa", "aa") -> 4
 
 
-## Задача 2
-Задача на балансировку скобок. Следует написать функцию, которая на
-вход принимает список символов и возвращает истину, если открывающие
-скобки полностью сбалансированы закрывающими.
+## Exercise 2
+You should write a function that accepts a list of characters and returns
+`true` if opening and enclosing parentheses are balanced.
 
-## Задача 3
-Требуется выполнить подсчет места, занимаемого директорией на диске, с
-учетом всех вложенных файлов. Программа должна использовать интерфейс
-командной строки. В качестве своего единственного аргумента, она должна
-принимать путь к каталогу, размер которого, требуется посчитать. В
-случае отсутствия параметров, должен быть выполнен подсчет размера
-текущего каталога. Если файл невозможно прочитать, программа должна
-продолжить свою работу, выведя на `stdin` сообщение об ошибке вместе
-с именем файла.
+## Exercise 3
+You should write an utility that counts a disk space usage for given directory,
+including all nested files/directories. The program should have command line
+interface. It should accept a directory which size will be counted as the only
+command line argument. If there's no parameter given, the program should count
+disk usage for the current directory. If it is not possible to read the file,
+the program should print an error message with their name on the `stdin`.
 
 
-Литература
-==========
-Старайтесь использовать хвостовую рекурсию, там где есть такая
-возможность. В этом вам поможет аннотация `@tailrec`. О хвостовом вызове
-вы можете прочесть [здесь][tail-call].
+Further reading
+===============
+Try to use tail recursion when possible. The `@tailrec` annotation will help
+you. You can read more about tail calls [here]
 
-[пост][trampolines] и [пост][scala-rec-fun], о том как это применено в `Scala`.
-Интересная статья на сайте [Dr. Dobbs][tcall-opt] посвященная оптимизации
-хвостовой рекурсии для JVM.
+[Here][trampolines] you may read about trampolines and [here][scala-rec-fun]
+about the ways they can be useful in `Scala`.
+
+A very interesting article on [Dr. Dobbs's][tcall-opt] website. You may read
+there about specifics of tail recursion implementation for JVM.
 
 [tail-call]: https://en.wikipedia.org/wiki/Tail_call
 [trampolines]: http://blog.richdougherty.com/2009/04/tail-calls-tailrec-and-trampolines.html

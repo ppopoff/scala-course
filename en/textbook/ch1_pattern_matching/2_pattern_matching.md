@@ -1,45 +1,41 @@
-Сопоставление с образцом
-========================
+Pattern matching
+================
 
-## Конструкция и извлечение данных
+## Data construction and decomposition
 
-### Конструкция объектов
-В предыдущем разделе мы рассматривали возможность конструирования
-списка путем использования оператора cons `::`, а так же кортежей,
-традиционным для них образом. Мы конструировали массивы, и списки:
+### Data construction
+In previous chapter we looked at the different ways of list creation. We used
+cons operator `::` to create a list. But we also used a very unusual construct
+that doesn't employ `new` keyword. It was definitely not a constructor:
 
     val myArray = Array(2100, 2099)
-
     val myList = List(1,2,3,4,5,6,7,8,9)
 
-Выглядит это порою загадочно: мы не использовали слово `new` и явным
-образом не вызывали какой либо из методов. На самом деле, для каждого
-из типов существует объект-компаньон, в котором определен метод `apply`.
-Метод `apply` определен так же для функций (в `Scala` функции также
-являются объектами).
+And yes, it's not a constructor. It's a method call. There's an object (you may
+think of them as built-in singletons) that is called `Array`and that object
+has a method that is called `apply`. This method is also defined for functions,
+because in `Scala` functions are objects too.
 
-    // равноценно коду выше
+    // the same as above
     val myArray = Array.apply(2100, 2099)
 
-Более подробно, о методе `apply` написано на [Twitter Scala School][apply]
+More about the `apply` method you may find in [Twitter Scala School][apply]
 
-### Извлечение данных из объектов
-Аналогично методу `apply` существуют методы `unapply` и `unapplySeq`.
-Подробно об экстракторах, вы можете прочитать [здесь][unapply].
+### Data extraction
+There is a couple of methods that called `unapply` and `unapplySeq`. You can
+read more about extractors [here][unapply].
 
 
-## Сопоставление с образцом
-Сопоставление с образцом (pattern matching) операция характерная
-преимущественно для функциональных языков. Она позволяет, извлекать
-компоненты составного объекта, обладая информацией о его структуре.
+## Pattern matching
+Pattern matching is widely used in functional languages. It allows you to extract
+the data from compound object, by having an information about their structure.
 
-Обязательно посмотрите это [видео][video-tutorial]. Здесь подробно
-рассказывается о том как выполняется конструирование структур данных,
-извлечение из них данных, а так же об операции сопоставления с образцом.
-Так же рекомендуем вам ознакомиться со следующим [туториалом][pm-tutor].
+From this [video][video-tutorial] you will learn a lot about construction and
+deconstruction of data, you will also learn about pattern matching. We recommend
+you to watch this video because it rocks. We also recommend you
+[this][pm-tutor] tutorial.
 
-Как вы уже наверное заметили, в предыдущем разделе, оператор связывания
-позволяет так же сопоставлять с образцом.
+As you may have noticed the assignment operator does the pattern matching.
 
 [video-tutorial]: https://www.youtube.com/watch?v=1vxIRkYZfmc
 
