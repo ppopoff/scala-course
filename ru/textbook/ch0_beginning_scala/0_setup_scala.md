@@ -132,8 +132,9 @@ Scala. Плюсы: Eclipse как свободная платформа обла
 поддержку (что немаловажно). Так же Play framework для Scala IDE будет работать
 "из коробки". Вы его ставите и им пользуетесь.
 
-ENISME - для тех кто любит Emacs. Очень хорошо сделана поддержка для Scala, и
-emacs в качестве основного плюса. Не добавить, не убавить.
+ENISME - для тех кто любит Vim или Emacs. Очень хорошо сделана поддержка для
+Scala, и поддежку вашего любимого текстового редактора можно выделить в
+качестве основного плюса. Не добавить, не убавить.
 
 [jdk-install-overview]: https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html
 [java-home-windows]: https://confluence.atlassian.com/doc/setting-the-java_home-variable-in-windows-8895.html
