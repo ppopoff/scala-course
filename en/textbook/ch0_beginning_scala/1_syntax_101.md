@@ -1,82 +1,75 @@
 Syntax 101
 ==========
 
-## Введение
-Отличным руководством по синтаксису, будет представленное на сайте
-[Learn X in Y][scala_in_5_minutes]. Многие концепции будут изложены
-более подробно в дальнейших разделах курса, так что если вам что-то
-не очень понятно, расстраиваться не стоит. Ознакомьтесь, и выделите
-то что вам более менее понятно. В этом разделе, буду дополнены
-некоторые упущенные моменты или недостаточно детально рассмотрены в
-руководстве, представленном выше.
+## Introduction
+The best syntaxt tutorial can be found [here][scala_in_5_minutes]. It will help
+you yo pick up the basics. Many of listed concepts will be explained further
+in more detail. In this topic we will add some additional information to that
+tutorial.
 
 
-## Присваивание
-В Scala мы можем создать переменную в классическом смысле (используя
-ключевое слово `var`), или переменную в смысле функциональных языков
-(используя ключевое слово `val`). Для знакомых с `Java`, `val`
-представляет собой тоже самое что и переменная помеченная префиксом
-`final`. Если в двух словах, то значение помеченное как `val`
-перезаписать нельзя. Функциональный подход поощряет использование `val`.
-Иногда возможность переприсваивать нам бывает полезна. Ваша задача:
-минимизировать переприсваивания, а потом, возможно, избавиться от них
-совсем.
+## Assigmnents/bindings
+In Scala we can define a classical variable (for many programming languages you
+may already know). You can do it by using `var` keyword. If you want to define
+a variable in functional way, you should use `val` keyword instead. For those
+who familiar with `Java`, `val` is works the like `final` modifier. Shortly,
+`val`s can not be reassigned. Functional approach engourages you to use `val`s.
+But sometimes there's no other visible option that reassigment. For now you
+should avoid `var`s anywhere you can, and then, maybe avoid them at all.
 
 
-## Особый литерал
-Очень часто, нам требуется чтобы функция после выполнения не возвращала
-ничего. Во многих языках тип данной функции помещается как `void`. В
-случае `Scala`, данный тип именуется `Unit`, и у него даже есть свой
-литерал:
+## Unusual literal
+Very often we need a function that won't return a thing. Some languages are
+using `void` type for that purpose. Scala has it's own `void`, and it's called
+`Unit`. And it even has it's own literal:
 
+    // here we defined a variable of type Unit
     val unit: Unit = ()
 
-В нашем случае, мы создали переменную типа `Unit`.
 
-
-## Коллекции
-### Массивы
-В Scala массивы также являются и коллекциями:
+## Collections
+### Arrays
+Arrays in `Scala` are collections:
 
     val anArray = Array(9, 8, 7, 6, 5)
     val anArray: Array[Int] = Array(9, 8, 7, 6, 5)
 
-Более того, в отличии от `Java`, в `Scala` массивы являются
-инвариантными.
+You should also know that in `Scala` arrays are invariant. (In `Java` they
+are co-variant).
 
-### Списки
-Списки можно сконструировать следующим образом:
+### Lists
+You can construct lists in the following manner:
 
     val list = List("a", "b", "c")
 
-А можно и так:
+And there's another way to do it:
 
     val myList = "a" :: "b" :: "c" :: Nil
 
-`Nil` обозначает, конец списка, `::` - оператор именуемый `Cons`. Более
-подробно про списки и основные операции над ними можно прочесть
-[здесь][lists]. Список, это наиболее часто используемая структура
-данных, и ее следует знать.
+`Nil` defines, the end of the list, `::` - is `Cons` operator. If you need more
+details about lists and their basic operations you can read it [here][lists].
+List — is the most widely used data structure. You should know it better then
+others.
 
 
-### Последовательности (Seq)
-В `Scala` определен трейт `Seq` (на данном этапе думайте о нем как об
-интерфейсе из традиционных ООП языков, или как о mixin (если вам знакомо такое
-понятие).
+### Sequences (Seq)
+`Scala` has a `Seq` trait. For now think about traits as you think about
+interfaces in object-oriented languages. You may also consider them mixins, if
+you are familiar with that concept.
 
     val sequence = Seq(1,3,4,5)
 
-Это достаточно абстрактный способ сослаться на какую либо последовательную
-коллекцию. Более подробно про отличия `Seq` и `List` можно прочесть
-[здесь][seq_list].
+Seq trait a way to refer to List or any other collection in an abstract way.
+[Here][seq_list] you may read about the differences between `Seq` and `List`.
 
 
-Материалы для дальнейшего изучения
-==================================
-  - И попробовать `Scala` в вашем[браузере][scala-in-your-browser].
-  - Мы так же предлагаем использовать материалы [Twitter Scala School][tss],
-    на протяжении знакомства с основными понятиями языка.
-  - [Официальная документация][offdoc].
+
+For further reading
+==================
+  - You can try `Scala` in your [browser][scala-in-your-browser].
+  - We also recommend you to use the materials from [Twitter Scala School][tss]
+    thoughout the course.
+  - [The official documentation][offdoc].
 
 [scala-in-your-browser]: http://scalatutorials.com/tour/
 [tss]: http://twitter.github.io/scala_school/

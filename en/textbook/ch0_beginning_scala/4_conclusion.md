@@ -1,13 +1,12 @@
-Заключение
+Conclusion
 ==========
-В заключение этой главы, мы бы посоветовали вам ознакомиться с статьей,
-которая называется [Effective Scala][effective-scala], а потом уже
-приступить к выполнению задания, которое вы можете найти в файле
-`assignments.md`.
+At the end of this chapter, we would recommend you to look at the
+[Effective Scala][effective-scala], and after that to start with practical
+part. You may find your first task inside `assignments.md`, which is located
+in the current folder.
 
-И не расстраивайтесь, если вы не все можете понять. Это нормально,
-понимание некоторых концепций приходит со временем, с этим ничего
-поделать нельзя.
+And please, don't be upset if you weren't able to understand all concepts that
+were listed inside this chapter. It's OK. You can always come back to them later.
 
 [effective-scala]: http://twitter.github.io/effectivescala/
 
