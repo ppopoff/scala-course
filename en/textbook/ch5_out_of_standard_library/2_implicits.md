@@ -8,13 +8,13 @@
 ## Типы имплиситов
 
  - Неявные параметры. Самый простой и доступный случай, это неявные
-   параметры. Про них можно прочесть [здесь][parameters]
+   параметры. Про них можно прочесть [здесь][impl-parameters]
  - Неявные преобразования (implicit conversions). О них вы можете
    прочесть [здесь][impl-conversions] и [здесь][impl-conversions-2].
- - Методы-расширения ([материалы][classes])
+ - Методы-расширения ([материалы][impl-classes])
 
 ### Поиск имплиситов
-О том где и `Scala` ищет имплиситы, вы можете прочесть [здесь][lookup].
+О том где и `Scala` ищет имплиситы, вы можете прочесть [здесь][impl-lookup].
 
 
 ## Имплиситы, каррирование и лямбды
@@ -55,7 +55,7 @@
 [pimp-my-lib]: http://www.artima.com/weblogs/viewpost.jsp?thread=179766
 [impl-conversions]: http://docs.scala-lang.org/tutorials/tour/implicit-conversions
 [impl-conversions-2]: http://baddotrobot.com/blog/2015/07/14/scala-implicit-functions/
-[parameters]: http://baddotrobot.com/blog/2015/07/03/scala-implicit-parameters/
-[classes]: http://docs.scala-lang.org/overviews/core/implicit-classes.html
-[lookup]: http://docs.scala-lang.org/tutorials/FAQ/finding-implicits.html
+[impl-parameters]: http://baddotrobot.com/blog/2015/07/03/scala-implicit-parameters/
+[impl-classes]: http://docs.scala-lang.org/overviews/core/implicit-classes.html
+[impl-lookup]: http://docs.scala-lang.org/tutorials/FAQ/finding-implicits.html
 
