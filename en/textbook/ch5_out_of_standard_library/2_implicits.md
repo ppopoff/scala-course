@@ -1,56 +1,54 @@
-Имплиситы
+Implicits
 =========
-Ключевым словом `implicit` в `Scala` помечается множество различных
-сущностей, которые неявным образом передаются, конвертируются, или
-добавляют новое поведение (ведут себя как `extension methods`).
+
+There is more than on entity that could be annotated with `implicit` keyword
+in `Scala`. Those entities could be implicitly passed, converted or enriched
+with additional functionality (aka `extension methods`).
 
 
-## Типы имплиситов
-
- - Неявные параметры. Самый простой и доступный случай, это неявные
-   параметры. Про них можно прочесть [здесь][impl-parameters]
- - Неявные преобразования (implicit conversions). О них вы можете
-   прочесть [здесь][impl-conversions] и [здесь][impl-conversions-2].
- - Методы-расширения ([материалы][impl-classes])
-
-### Поиск имплиситов
-О том где и `Scala` ищет имплиситы, вы можете прочесть [здесь][impl-lookup].
+## Types of implicits
+ - Implicit parameters. You may read about them [here][impl-parameters]
+ - Implicit conversions. [Here][impl-conversions] and [here][impl-conversions-2]
+   you may read about them.
+ - Implicit classes (can be used to provide extension methods). More information
+   [here][impl-classes].
 
 
-## Имплиситы, каррирование и лямбды
-В Play Framework, очень популярна следующая конструкция:
+### Implicit lookup
+[More][impl-lookup] about implicit lookup.
+
+
+## Implicits with lambdas and currying
+Play Framework has a very popular construct:
 
     Action { implicit request =>
       Ok("ok: [" + request + "]")
     }
 
-Итак, давайте разберемся с тем, что здесь происходит. Код, записанный
-выше, можно переписать так:
+Let's figure out what implicit does there. The rewritten version of code above:
 
     Action { request =>
       implicit val r = request
       Ok("ok: [" + request + "]")
     }
 
-Сигнатура класса `Ok`, приблизительно, выглядит следующим образом:
+The signature of `Ok` class, may look like this:
 
     class Ok(message: String)(implicit r: Request).
 
-Ключевое слово `implicit`, может использоваться только для *последнего*
-каррированного аргумента функции. Оно указывает место, в которое возможно
-подставить неявный параметр. Без имплиситов код будет выглядеть следующим образом:
+The `implicit` keyword can be used only for *the last* curried argument.
+It denotes the spot where an implicit parameter can be placed. That's how it
+will look like without implicits:
 
     Action { request =>
       Ok("ok: [" + request + "]")(request)
     }
 
 
-## В заключение
-Использование имплиситов в вашем коде является крайне нежелательным.
-Данный инструмент, в первую очередь, предназначается для дизайнеров
-библиотек, а так же для разработчиков предметно-ориентированных языков
-(Domain Specific Languages). Достаточно старая [статья][pimp-my-lib],
-поясняющая сущность данного подхода.
+## Conclusion
+In the most cases implicits are not what you want. This language construct was
+intendend for `DSL` developers (Domain Specific Languages). Another usage is
+extension-methods. There's an [article][pimp-my-lib] explaining that approach.
 
 [pimp-my-lib]: http://www.artima.com/weblogs/viewpost.jsp?thread=179766
 [impl-conversions]: http://docs.scala-lang.org/tutorials/tour/implicit-conversions
