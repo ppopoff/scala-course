@@ -83,6 +83,8 @@
     sort(items) // будут отсортированы по id
     sort(items)(byName) // явно заданный порядок
 
+Более подробно про `Ordered` и `Ordering` вы можете прочесть [здесь][both-ords].
+
 
 Дополнительная литература
 =========================
@@ -103,6 +105,7 @@
 
 [ordering]: http://www.scala-lang.org/api/2.12.0/scala/math/Ordering.html
 [ordered]: http://www.scala-lang.org/api/2.12.0/scala/math/Ordered.html
+[both-ords]: http://like-a-boss.net/2012/07/30/ordering-and-ordered-in-scala.html
 [tc-0]: https://engineering.sharethrough.com/blog/2015/05/18/type-classes-for-the-java-engineer/
 [open-closed]: https://en.wikipedia.org/wiki/Open/closed_principle
 [simulacrum]: https://github.com/mpilquist/simulacrum
