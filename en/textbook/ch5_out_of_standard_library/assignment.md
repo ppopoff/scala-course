@@ -1,18 +1,17 @@
-Задания к главе 5
-=================
+Assignments for chapter 5
+=========================
 
-## Гетерогенные списки
+## HLists
 TODO:
 
-## Линзы
+## Lenses
 TODO:
 
-## Имплиситы
-TODO:
+## Type classes
+implement any sorting method you wish for your class using
+ - Ordering from standart library
+ - Ord type class from scalaz
 
-## Классы типов
-TODO:
-
-## Работа над ошибками
+## Exception handling
 TODO:
 
