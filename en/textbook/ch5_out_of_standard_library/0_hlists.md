@@ -4,10 +4,9 @@ Heterogeneous lists
 In this section we will talk about the most an promising data structure that
 will be included in `Dotty` and further versions of `Scala`.
 [The first originated][hlists-haskell] in 2004 as `Haskell` library for
-heterogeneous lists. They are also implemented in `shapeless` -- a library that
+heterogeneous lists. They are also implemented in `Shapeless` -- a library that
 was created by Miles Sabin for generic programming in `Scala`. It is used
 inside `Parboiled`, `Finch`, and [other][built-with-shapeless] libraries.
-Here we will talk about `Hlists` -- the most notorious feature of `Shapeless`
 
 `HList` - is a data structure that can be thought as a hybrid of linked list
 and tuple. Here's the example:
@@ -20,7 +19,7 @@ and tuple. Here's the example:
 
     val hlist = "i" :: 'ate :: 8 :: "cookies" :: HNil
 
-[Here][hlist-tutorial] you may find a good tutorial about `HLists`
+[Here][hlist-tutorial] you may find a good tutorial about `HLists`.
 
 In `HList` some errors do appear at during the compile time
 
