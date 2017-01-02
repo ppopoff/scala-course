@@ -21,11 +21,11 @@
     def tail: MyList[A]
     def init: MyList[A]
 
-    // should return index of given element
+    // должен взвращаться индекс переданного элемента
     def indexOf(elem: A): Long
 
     // Возвращает первые n элементов списка
-    // если n больше
+    // если n больше длины списка, возвращает весь список.
     def take (n: Int): MyList[A]
 
     // Возвращает n последних элементов списка
