@@ -1,16 +1,15 @@
-Линзы
-=====
-
-Мы можете создавать структуры основанные на case-классах, обладающие
-огромной вложенностью. Но рано или поздно вам придется менять данные.
-Для простого случая, и пример будет простым:
+Lenses
+======
+You can define sophisticated structures by nesting case-classes. And you will.
+But sooner or later you will have a need to change a content of that structure.
+Here's the simplest case possible:
 
     case class Dog (name: String, age: Int)
 
     val fido = Dog("Fido", 6)
     val olderFido = fido.copy(age = 7)
 
-А что делать в таком случае?
+But what will you do in the following case?
 
     case class Address(street: String,
                        city: String,
@@ -18,16 +17,16 @@
 
     case class Person(name: String, age: Int, address: Address)
 
-Каждый раз разбирать и собирать все объекты вручную для того чтобы
-изменить одно единственное поле? Не находите, что это не самый лучший
-способ это сделать? Именно здесь, вам на помощь придут линзы.
+Don't you think that manual object construction and deconstruction for
+each specific is not an appropriate way of dealing with this issue?
+Here lenses become useful.
 
-Почему линзы? Потому что они способны сфокусироваться на главном. Вы
-фокусируете линзу на определенную часть структуры, и получаете ее,
-вместе с возможностью ее (структуру) обновить.
+Why those things were named that way? Because they can focus on something
+really important. In our case on the specific part of your data structure.
+As the result you will have an opportunity to update that structure.
 
-Предположим, что у нас есть  персонаж состарился на год. Как мы
-отреагируем на это изменение?
+Let's say you have a person who become a one year older. How we could
+react on this change?
 
     val person = Person("Joe Grey", 37,
                         Address("Southover Street",
@@ -41,24 +40,24 @@
     val person2 = ageLens.set(person)(38)
     // person2.age == 38
 
-Аналогичную операцию вы можете совершить и над адресом. Как видите,
-достаточно просто. К сожалению, а может быть и к счастью, `Scala` не
-имеет встроенных линз. Поэтому, вам придется использовать стороннюю
-библиотеку. Мы предлагаем вам использовать `shapeless`. Собственно,
-приведенный выше пример, был написан с использованием этой замечательной
-и понятной библиотеки.
+The same actions could be applied to an address field. As you have noticed
+it's pretty simple. Unfortunately `Scala` doesn't have built-in lenses, that's
+why you should use an external library that will provide you with this
+functionality. We propose you to use `shapeless`. The example above was
+implemented with help of that library.
 
-Существует множество других реализаций для линз, если хотите, вы можете
-использовать [scalaz][scalazl], [monocle][monocle]. Последняя предоставляет
-более продвинутые механизмы использования оптики, и мы рекомендуем ею
-воспользоваться в дальнейшем.
+There are various implementations of lenses for `Scala`. You may use
+[scalaz][scalazl] or [monocle][monocle] if you with. Monocle provides you
+with more advanced optics than any other `Scala` library. We definitely
+recommend you to use it in future.
 
-Библиотека `shapeless` уже включена в `CLASSPATH`, поэтому рекомендуем
-вам использовать именно ее.
+`Shapeless` is already included in your `CLASSPATH`, that's why we recommend
+you to use it.
 
-Литература
-==========
-Более наглядно, использование линз в `shapeless` показано [здесь][lenses-smpl].
+Further reading
+===============
+[Here][lenses-smpl] you may find an example that demonstrates lenses in
+`shapeless`
 
 [lenses-smpl]: https://github.com/milessabin/shapeless/blob/master/examples/src/main/scala/shapeless/examples/lenses.scala
 [scalazl]:  http://eed3si9n.com/learning-scalaz/Lens.html

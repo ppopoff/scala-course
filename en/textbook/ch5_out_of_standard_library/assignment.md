@@ -1,18 +1,6 @@
-Задания к главе 5
-=================
+Assignments for chapter 5
+=========================
 
-## Гетерогенные списки
-TODO:
-
-## Линзы
-TODO:
-
-## Имплиситы
-TODO:
-
-## Классы типов
-TODO:
-
-## Работа над ошибками
-TODO:
+Navigate to `ch5` folder of your codebook.
+You will find the task templates there.
 
