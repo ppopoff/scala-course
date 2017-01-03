@@ -1,38 +1,33 @@
-О списках
-=========
+More on lists
+=============
 
 ## Headshot
-У `Option` есть `get`, у списка есть `head` а еще у него есть `init` и
-`tail`. Вот что мы можете получить, вызывая вышеописанные методы:
+`Option` has its `get`, list has its `head`. It also has `init` and `tail`.
+Here what you may get using those methods on empty list:
 
-    // Для пустого списка:
+    // for empty list:
     init: java.lang.UnsupportedOperationException
     head: java.lang.NoSuchElementException
     last: java.lang.NoSuchElementException
     tail: java.lang.UnsupportedOperationException
 
-конечно, с вами этого никогда не случится, если вы проверяете лист
-на пустоту. Каждый раз? Да ладно, с этим списком никогда ничего не может
-случиться. Он никогда не будет пустым? Правда?
+Of course it won't happen if you always check your list for emptiness. And of
+course it won't happen to you because you *always* check your lists. Right?
+Or maybe you have a list that won't be empty because it was created that way.
 
-Вызов `list.head` и сотоварищей -- один из самых лучших способов
-выстрелить себе "в голову" при работе со списками.
+Calling `list.head` its sidekicks -- is the best way to perform head-shot on
+yourself.
 
-> Извивайтесь гремучей змеей, делайте все возможное чтобы не
-> использовать list.head и его друзей.
+> Do whatever possible to avoid calling list.head, list.tail and others
 
-Вместо `head` неплохим вариантом будет использование метода
-`headOption`, если для вас наличие дополнительного контейнера проблемой
-не является. Метод `lastOption` ведет себя аналогично. Если вы
-каким-либо образом привязаны к индексам, можете воспользоваться методом
-`isDefinedAt`, который принимает целочисленный аргумент (индекс)
-в качестве параметра.
-Все описанное выше по-прежнему подразумевает проверки, которые можно
-забыть. Найдется еще 1001 одна причина чтобы вы их опустили сознательно.
-Правильной и идиоматичной альтернативой будет использование
-сопоставления с образцом. Тот факт, что лист является алгебраическим
-типом, не даст вам забыть о `Nil`, вы сможете спокойно избежать вызовов
-`head` и `tail`, а также сэкономить несколько строчек кода:
+Calling `headOption` is much better that using `head`. Of course if you don't
+mind having a redundant container. `lastOption` behaves better. If you're
+somehow bound to indexes, using `isDefinedAt` that accepts integral index as its
+parameter may also help. All written about assumes checks that *could not
+happen*. You may also find a thousand reasons to intentionally avoid those
+checks. There's an idiomatic way of dealing with this issue: use pattern
+matching. List is an Algebraic Data Type, so you won't miss Nil. You
+can pattern match list items, so there no need to call `head/tail` explicitly:
 
     def printRec(list: List[String]): Unit = list match {
       case Nil  => ()
@@ -40,37 +35,29 @@
                    printRec(xs)
     }
 
-*Немного о производительности*
-> С точки зрения производительности, для односвязного списка, коим
-> является скаловский List (он же `scala.collection.immutable.List`)
-> Наиболее дешевой операцией, будет запись в начало списка, нежели
-> в конец. Для записи в конец списка требуется пройти весь список до
-> конца. Сложность записи в начало списка O(1), в конец O(n).
-> не забывайте об этом.
+*Performance of lined lists*
+> Scala's List that corresponds to `scala.collection.immutable.List` is a
+> simple linked list. Adding a new value to the head of list is the cheapest
+> operation that has algorithmic complexity O(1). If you're going to write at
+> the end of that list, the complexity will be O(n). Please, keep that in mind.
 
-## Возможно список
-В коде только что познакомившихся со `Scala`, с завидной периодичностью
-встречаю в аргументах функции, или в качестве возвращаемого типа
-`Option[List[A]]`. Как встречаю, спрашиваю написавшего зачем он нужен.
-А мне отвечают: "Так у нас список может быть, а может и не быть, что
-же я буду вместо него `null` использовать?". И слышу это от достаточно
-взрослых инженеров. Список может быть пустым так же, как и `Option`,
-поэтому можно спокойно передавать пустой список, если что-то пойдет не
-так. Дополнительный контейнер не нужен.
+## optional list
+I do read a lot of code that was created by `Scala` newbies. And I often see
+the following anti-pattern, where it could be avoided: `Option[List[A]]`. And
+every time I see it, I ask the writer to explain himself. List is like a single
+element Option. It can also be empty. There's no need for additional container.
 
 ## ::Nil
-Ранее мы рассматривали следующий способ конструирования списков:
+Previously we discussed the following way to construct a list:
 
     val mylist = 1 :: 2 :: 3 :: 4 :: 5 :: Nil
 
-`::` не является оператором, встроенным в язык. Это имя класса/метода,
-который обычно называется `Cons`. Более того, `::` это один из редких
-операторов Scala, который обладает правой ассоциативностью, поэтому,
-увидев `Nil` справа, компилятор догадывается что мы конструируем список
-и вызывает метод `::` получив аргумент в который, компилятор в
-состоянии определить тип списка. Более подробно об этом написано в книге
-Одерского `Programming in scala`. К тому же использование `Nil` более
-[идиоматично][5], чем использование `List.empty` или `List()`
+`::` is not a built-in operator. Its the name of class/method that is usually
+called `Cons`. Moreover `::` is one of the rarest kind of operators that have
+right-associative. That's why when we have `Nil` at the end of the construct
+other `::`s will be appropriate because we've already created a list.
+You may get more details from `Programming in scala` book. Furthermore `Nil` is
+more idiomatic than `List.empty` or `List()`.
 
     scala> println (Nil == List())
     true
@@ -88,13 +75,13 @@
     374527572
 
 
-Литература
-==========
-Более подробно о списках и других типах коллекций, вы можете прочитать
-на сайте [Twitter Scala School][tschool-col]. У Alvin Alexander существует ряд
-неплохих туториалов про списки, [здесь][aal1] [здесь][aal2] и [здесь][aal3].
-Официальная [документация][list-doc] всегда будет кстати. О том, как
-идиоматично обозначать пустой список можете почитать [здесь][empty-list]
+Further reading
+===============
+You may learn more about lists and other collections on the
+[Twitter Scala School][tschool-col] website. Alvin Alexander wrote a bunch of
+handy tutorials about lists. You may find them [here][aal1] [here][aal2] and
+[here][aal3]. Official [documentation][list-doc] is always useful. AN empty list
+can be described with various notations, more info [here][empty-list]
 
 [tschool-col]: https://twitter.github.io/scala_school/collections.html
 [aal1]: http://alvinalexander.com/scala/scala-list-class-examples
