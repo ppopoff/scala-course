@@ -1,14 +1,13 @@
-Задания для главы 2
-===================
+Assignments for chapter 2
+=========================
 
-## Ваш персональный список
-Реализуйте ваш персональный список, в виде `ADT` (Cons, Nil). Список
-должен быть односвязным и неизменяемым (immutable). Для списка реализуйте
-`companion object`, с методом `apply`, который будет позволять конструкцию
-элементов следующим образом: `val myList = MyList(1,2,3,4,5)`.
+## Your personal list
+Implement your personal list as `ADT` (Cons, Nil) The List should be linked
+(single linked) and immutable. You should also implement `companion` object
+with `apply` method that will allow you to construct list with following
+syntax: `val myList = MyList(1,2,3,4,5)`.
 
-Для списка должны быть *рекурсивным* образом реализованный следующие
-методы:
+All methods that are listed below must be implemented *recursively*:
 
     def size: Long
 
@@ -24,11 +23,11 @@
     // should return index of given element
     def indexOf(elem: A): Long
 
-    // Возвращает первые n элементов списка
-    // если n больше
+    // Returns first n elements of the list
+    // if n > list size it will return the whole list
     def take (n: Int): MyList[A]
 
-    // Возвращает n последних элементов списка
+    // returns last n elements of the list
     def takeRight(n: Int): MyList[A]
 
     def reverse: MyList[A]
@@ -38,9 +37,8 @@
 
     def append(that: MyList[A]): List[A]
 
-    // операция которая дописывает в начало списка.
+    // appends element to the beginning of list
     def cons(a: A): List[A]
 
-Использование различных алгоритмических оптимизацией приветствуется,
-но не является обязательным.
+Various algorithmic optimizations are welcome. But nor required.
 

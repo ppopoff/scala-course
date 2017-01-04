@@ -1,36 +1,34 @@
-Типы и перечисления
-===================
+Types and enumerations
+======================
 
-Для многих перечисления -- вещь незаменимая. Даже если язык не обладает
-поддержкой перечисления (enumerations), кто-то обязательно ее
-переизобретает. В Scala нет ключевого слова `enum` или даже
-`enumeration`. И многие, пришедшие из `Java` и `C#` пытаются придумать
-что-то свое, например:
+For many of us enumerations are indispensable. Even if your language doesn't
+support them. Somebody will reinvent that wheel again. `Scala` doesn't have
+`enum`or `enumeration` keywords. That's why newcomers from `Java` and `C#` are
+eager do something creative, like:
 
-    // Пример взят из реальной жизни.
+    // A real life example :)
     object Weekday {
       val Monday = 0
       ...
       val Sunday = 6
     }
 
-А потом пытаются использовать это так как перечисление из мира `Java`
+And then those values will be used, if they were `Java` enumerations:
 
     if (weekday == Weekday.Friday) {
        stop(wearing, Tie)
     }
 
-А что, если где-то глубоко случится "непоправимое"? И кто-то забудет о
-том, что наши дни недели начинаются с 0?
+But what if somebody forget that the first day doesn't start with zero.
+Assuming that Monday == 1:
 
     val sunday = 7
 
-Данное решение вопроса, возможно имеет право на жизнь, если только
-недолгую и несчастную. В `Scala` есть лучший способ создания
-перечислимых типов. И сделано это круче чем в `Java` или `C#`
+It's a bad design. `Scala` has a better way to define enumerable types. And
+its much better that `Java` or `C#` approach.
 
 
-## Наше первое перечисление
+## Our first enumeration
 
     sealed trait TrafficLight
     case object Green extends TrafficLight
@@ -38,26 +36,21 @@
     case object Red extends TrafficLight
     case object Broken extends TrafficLight
 
-Теперь давайте разберемся с деталями.
+Now, let's get down to business...
 
-## Ключевое слово `case`
-перед `object` говорит о том, что данный объект может быть использован
-для сопоставления с образцом (pattern matching). Так же для этого
-объекта существует поддержка `equals` и `hashcode`, сериализация
-по-умолчанию и предопределенная реализация `toString`.
+## `case` keyword
+before `object` tells us that the object can be used in pattern matching
+operation. It also means that the object has predefined `equals`, `hashcode`,
+serialization and default implementation of `toString` method.
 
-## О слове Sealed
-Существует в `Scala` такое ключевое слово, как `sealed` и делает оно
-следующее: запирает структуру данных от наследования вне модуля
-компиляции (compilation unit). В нашем случае это файл. Зачем это нужно?
-Чтобы мы заранее (на этапе компиляции) знали о всех возможных
-наследниках данного типа, и могли использовать это при операции
-сопоставления с образцом. Вместо `trait` в данном случае можно
-использовать и `sealed abstract class`. Это полезно, если ваш код будет
-тесно проинтегрирован с кодом на `Java`. Использование `trait` более
-идиоматично.
-
-Объявим следующую функцию:
+## `sealed` keyword
+`Scala` has `sealed` keyword. When used prevents further inheritance outside
+of its compilation unit (in our case file). Why do we need this? Well, because
+we will have information about all possible subtypes of given type at the
+compile time, to throw an error. We can use `sealed abstract class` instead of
+`trait`. The first option becomes pretty useful if you want to integrate your
+code with `Java`. Trait seems more idiomatic.
+Let's define the following function:
 
     def tellWhatTheLightIs(tl: TrafficLight): Unit = tl match {
       case Red => println("No cars go!")
@@ -65,7 +58,7 @@
       case Yellow => println("Ooohhh you better stop!")
     }
 
-И получим:
+And we will got:
 
     warning: match may not be exhaustive.
     It would fail on the following input: Broken
@@ -73,15 +66,15 @@
                                                             ^
     tellWhatTheLightIs: (tl: TrafficLight)Unit
 
-Так же можно объявлять рекурсивные структуры, для этой цели следует
-использовать `case class`:
+We can also define recursive structures. You can use `case class` for this
+purpose:
 
     sealed trait Tree
     case class Leaf(value: Int) extends Tree
     case class Node(l: Tree, r: Tree) extends Tree
 
-Конечно, мы можем предположить что наш светофор никогда не сломается, и
-отмахнуться от ошибки:
+Of course we could imagine that our traffic light will never get broken. We
+don't care about an error (that will never happen :))
 
     def tellWhatTheLightIs(tl: TrafficLight): Unit = tl match {
       case Red => println("No cars go!")
@@ -90,26 +83,23 @@
       case _ => println("Baby I Don't Care")
     }
 
-Но так делать *не следует*. Если вы готовы отмахнуться от результатов
-при сопоставлении с образцом, задайте себе несколько раз вопрос:
-"А вы уверены зачем вы это делаете?"
+But you *should not do it*. If you're willing to ignore an error, ask yourself
+a question: "Do I know what I'm doing?" That's why we need to use a `sealed`
+keyword.
 
-Собственно для этого там и нужно использовать ключевое слово `sealed`.
+That's it. We've just created an idiomatic `Scala` enumeration. Which actually
+is not an enumeration. It's Algebraic Data Type or [ADT][adt-wiki].
 
-Вот и все, мы создали идиоматическое перечисление
-идиоматичное для языка `Scala`. Есть только одно но... Мы описали не
-перечисление, мы описали Алгебраический тип данных, или [ADT][1].
+Many types from the standard library are implemented as ADT's: List, Option,
+Try and lot's of others. If you wish to learn more, follow the links from
+this topic.
 
-Многие типы данных в Scala реализованы как ADT: Списки, Option, Try, и
-многие другие. Если вы хотите узнать больше о том что такое ADT,
-обратитесь к ссылкам в данном разделе.
-
-Литература
-==========
-Неплохо про алгебраические типы данных рассказано, как ни странно в
-[Википедии][adt-wiki]. Касательно `Scala` есть достаточно доступный
-[пост][scala-adt] и [презентация][scala-adt-2], которая, возможно,
-покажется вам интересной.
+Further reading
+===============
+Don't be surprised if I say that you can read about Algebraic Data Types in
+[Wikipedia][adt-wiki]. It's a decent article. There's also interesting
+[blog post][scala-adt] about ADT's `Scala`. You may also find this
+[presentation][scala-adt-2] pretty useful.
 
 [adt-wiki]: https://en.wikipedia.org/wiki/Algebraic_data_type
 [scala-adt]: https://gleichmann.wordpress.com/2011/01/30/functional-scala-algebraic-datatypes-enumerated-types/

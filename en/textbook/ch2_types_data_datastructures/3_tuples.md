@@ -1,85 +1,73 @@
-Кортежи
-=======
-Наличие кортежей (tuples) -- замечательнейшая особенность функциональных
-языков. В функциональных языках, кортежи очень удобно использовать
-аналогично записям (records): берем кортеж, складываем в него все
-необходимое, и оборачиваем в новый тип, например используя `newtype` в
-Haskell[1]. В чисто-функциональных языках без кортежей никуда: они
-позволяют замечательно представлять словари (dictionaries), без них было
-[конволюция](convolution) была бы менее наглядной.
+Tuples
+======
+Tuples are amazing feature of functional languages (and some imperative,
+including python). In functional languages tuples often used as record types.
+You may create a tuple with required fields and then wrap it using mechanism
+similar `newtype`in [`Haskell`](haskell_newtype). In functional languages you
+can not avoid using tuples. They are good in `dictionaries`.
+[Convolution](convolution) won't be also possible without them.
 
-Scala язык объектно-ориентированный. Да, с поддержкой элементов
-функционального программирования. Уверен, что многие со мной не
-согласятся, но давайте не будем забывать что в Scala все есть объект.
-Наличие case классов во многом снижает необходимость в кортежах: мы
-получаем неизменяемые записи, которые так же можно сопоставлять с
-образцами (об этом будет рассказано далее), с каждым case классом уже
-связан свой тип.
+`Scala` is an object-oriented. For those who don't agree with me: `Function1` is
+and object that represents a function. In `Scala` everything is an object.
+`Case class`es are pretty useful and in the most situations they are better than
+tuples. Even `case class` represents it's own type.
 
-Кортежи приходится использовать, и пришедшим из объектно-ориентированных
-языков, данные языковые средства в диковинку. Во-первых, их не именуют.
+But some-time object-oriented people have a need to use tuples. The main issue:
+tuples are not aliased.
 
-> Если кортеж не используется как анонимная помойка, его следует
-> именовать
+> If tuple is not intended to be anonymous -- it must be named
 
-Для функционального стиля хорошим тоном считается использование
-псевдонимов для типов (type aliasing):
+It's a common practice to use type aliasing for tuples:
 
     type Point = (Double, Double)
 
-В будущем вы ссылаетесь на вполне себе именованные тип, и у вас не будет
-вот таких страшных вещей:
+After that you may reference your tuple by alias to avoid weird things:
 
-    // плохо
+    // bad!
     def drawLine(x: (Double, Double), y: (Double, Double)): Line = ???
 
-    // не плохо
+    // way better
     def drawLine(x: Point, y: Point): Line = ???
 
 
-В Scala, достучаться до элемента кортежа можно по индексу. Например:
+Each tuple element in `Scala` can be called by their index:
 
-    // Плохо!
+    // awful!
     val y = point._2 // второй элемент
 
-Особенно печально это выглядит при работе с коллекциями:
+That looks pretty ugly when you work with collections:
 
-    // Печально!
+    // that's ugly
     points foreach { point: Point =>
       println(s"x: ${point._1}, y: ${point._2}")
     }
 
-И так делать не надо. Конечно же есть исключительные случаи, когда
-подобного рода меры повышают читаемость:
+And it's not a proper way of doing things. But there are some exceptional cases,
+that improve readability:
 
-    // Оправданно
+    // makes sense
     rows.groupBy(_._2)
 
-Но в большинстве случаев, синтаксис с подчеркиванием лучше не
-использовать. Про него вообще лучше забыть, и не вспоминать. В Scala
-существуют более естественные способы обходиться без подобного
-синтаксиса.
+But in most of the cases underscored syntax should not be used. It's even better
+to forget about it, than use it. Scala has more natural ways of dealing with
+tuples.
 
-> В Scala всегда можно обойтись без pair._2. И это нужно делать.
-> Пожалейте ваших коллег, или будущего себя.
+> You can always avoid calling pair._2, so do it.
 
-Чтобы понять и разобраться почему все именно так давайте обратимся к
-функциональным языкам.
+To understand why tuples behave as they are, let's take a closer look to other
+functional languages.
 
-Почему индексы списков в Scala начинаются с 0, а кортежей с единицы?
-Ответ: потому что так исторически сложилось. В `SML` для доступа к
-элементам списка существуют [функции](tuples_in_sml) `#1` и `#2`.
-В Haskell существуют всего две функции для доступа к элементам кортежа:
-`fst` и `snd`.
+Question: why tuple indexes in `Scala` start with 1, when lists start with 0.
+Answer: History. To access a tuple element in `SML` you should use `#1` and `#2`
+[functions](tuples_in_sml). In `Haskell` you should use `fst` and `snd`.
 
-    -- Как-то так. В Haskell аргументы функции идут сразу же после имени
-    -- этой самой функции. Без скобок.
+    -- Haskell doesn't use parentheses for funcito argument.
     fst tuple
 
-А вот получить третий или пятый элемент кортежа просто так уже не
-получится. Не верите? А [зря](tuples_in_haskell). И не поверите, если я
-вам скажу что сопоставление с образцом это *наиболее естественный*.
-И не только в Haskell.
+But there's no function that gets the third or fifth element of the tuple? Look
+[here](tuples_in_haskell) if you don't believe me. You may not believe me if I
+say that pattern matching is the *most natural* way to access a tuple. And not
+only in `Haskell`.
 
 **Ocaml**
 
@@ -97,7 +85,7 @@ Scala язык объектно-ориентированный. Да, с под�
     4
 
 **Python**
-А вот вам пример не из функционального языка:
+It's not a functional language, but knows the trick:
 
     >> (ip, hostname) = ("127.0.0.1", "localhost")
     >>> ip
@@ -106,70 +94,66 @@ Scala язык объектно-ориентированный. Да, с под�
     'localhost'
     >>>
 
-А теперь давайте применим полученные знания к **Scala**
+And now let's apply our knowledge to **Scala**
 
-    // предположим у нас есть прямоугольник
+    // assume that we have a rectangle
     trait Rectangle {
       def topLeft: Point
       ...
     }
 
-    // сопоставления с образцом при связывании
+    // pattern matched on binding
     val (x0, y0) = rectangle.topLeft
 
-    // сопоставление с образцом внутри лямбды:
+    // pattern matched inside lambda expression:
     points foreach { case (x, y) =>
       println(s"x: ${x}, y: ${y}")
     }
 
-И да, стандартный механизм сопоставления с образцом никто не отменял.
+You can also use traditional mechanism using `match` keyword.
 
-> Так же кортежи можно использовать как анонимные помойки, и это
-> порой оправданно
+> You can use a tuple as an anonymous storage. And sometimes it wise enough.
 
-Дело в том что во многих функциональных языках существует сопоставление
-с образцом на уровне сигнатур функций:
+The problem is: many functional languages allow you to have a pattern function
+signatures:
 
-    -- немного кода на haskell
-    -- здесь описываются типы:
+    -- some code in haskell
+    -- defining function type
     map :: (a -> b) -> [a] -> [b]
 
-    -- а вот тут сопоставление с образцом на уровне
-    -- сигнатуры функции
+    -- here you may see function signature's pattern matching
 
-    -- если нашим аргументом является
-    -- пустой список:
-    map _ []  =  []
+    -- if our argument is an empty list return itself:
 
-    -- более идиоматично было бы ипользование x:xs
-    -- но, считаю что для людей Haskell не знающих head:tail
-    -- будет нагляднее
+    -- using x:xs to represent list is more idiomatic, but I think if you
+    -- are not familiar with haskell head:tail will be better.
+    -- : - is cons operator similar to Scala's ::
     map fun (head:tail) = fun head : map fun tail
 
-Аналогично для `SML` или `Erlang`. Scala такой возможности лишена. Поэтому
-кортежи можно использовать для группировки и последующего сопоставления
-с образцом. И да, это будет вам стоить производительности (каждый раз
-будет создаваться дополнительный объект в памяти):
+You can do it the same way in `SML` and in `Erlang`. `Scala` doesn't have this
+feature. Here tuples come pretty handy. The cost is additional memory allocated
+for tuple object:
 
-    // похоже на Haskell, но не то :(
+    // pretty haskellish
     def map [A, B] (f: A => B, l: List[A]): List[B] = (f, l) match {
         case (f, Nil) => List.empty
         case (f, head::tail) => f(head) :: map(f, tail)
     }
 
-Зачастую нам бывает необходимо обновить значение в каком-то из элементов
-кортежа. Для этого подойдет метод `copy`.
+Sometimes we need to update one or couple of tuple elements. You can use `copy`
+method to do the job:
 
     val dog = ("Rex", 13)
     val olderDog = tuple.copy(_2 = 14)
 
 
-Литература
-==========
-[Раздел][scala-wiki-tuples] wiki-книги о Scala, посвященный кортежам.
+Further reading
+===============
+A [chapter][scala-wiki-tuples] `Scala` wiki-book that demonstrates tuples.
 
 [scala-wiki-tuples]: https://en.wikibooks.org/wiki/Scala/Tuples
 [convolution]: https://en.wikipedia.org/wiki/Convolution_(computer_science)
 [tuples_in_haskell]: http://stackoverflow.com/questions/15558278/how-to-get-nth-element-from-a-10-tuple-in-haskell
 [tuples_in_sml]: http://www.cs.cornell.edu/courses/cs312/2004fa/lectures/lecture3.htm
+[haskell_newtype]: https://wiki.haskell.org/Newtype
 
