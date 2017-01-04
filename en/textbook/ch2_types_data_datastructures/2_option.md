@@ -1,70 +1,67 @@
 Options
 =======
-Многие из вас уже знакомы с типом `Optional` в `Java`. К тому же ранее
-мы его использовали. Тип `Option` выполняет те же функции. Более того,
-многим java-разработчикам данный тип может быть знаком по библиотеке
-`Guava` от `google`.
+Many of you are already familiar with `Optional` from `Java`. And I won't be
+surprised if you already used it. `Scala`'s `Option` does the same things. Some
+`Java` developers who are not familiar with `Java 8` may know `Optional` from
+`Google`'s `Guave`
 
-Да, этот тип используется для избежания `null`, а в последствии и
-`NullPointerException`. Да, у него есть методы `isEmpty`, и `nonEmpty`.
-В варианте `Guava` есть метод `isPresent`. И многие, кто использовал
-или не использовал Optional в `Java` или других языках, неправильно
-использует его в `Scala`.
+This container type is usually used in avoidance of `null` that leads to
+`NullPointerException`. `Optional` has a couple of notorious methods: `isEmpty`
+and `nonEmpty`. The first one corresponds to `isPresent` from `Guava`. And we
+still have people who are doing `Option`s wrong.
 
-Неправильное использование Option, является распространенной проблемой.
-`Option`, в **первую очередь** нужен для того чтобы **концептуально**
-показать возможно отсутствующую сущность. А не убегать от NPE. Да
-проблема есть, и проблема серьезная. Кто-то для этого даже язык свой
-изобретает.
-
-Но давайте вернемся к неправильному использованию `Option` в `Scala`:
+Wrong usage of `Option` is very common issue. **At first** it's a **concept**
+which tells that object may not be present. It's not about running out of
+`NPE`. Yes `NullPointerException` is a serious issue. But it doesn't stay behind
+that. Some folks are inventing their own language to evade
+`NullPointerException`. But, let's go back to the correct usage of `Option` in
+`Scala`:
 
     if (option.isEmpty)
       default
     else
-      // может взорватся c NoSuchElementException (без проверки)
+      // may blow with NoSuchElementException (without check)
       option.get
 
-Да, мы делаем проверку, и у нас вроде бы ничто не должно взорваться.
-Но поверьте, в промышленном коде можно ошибиться, и в условии может
-оказаться совсем не то выражение, которое ожидалось. И даже тесты могут
-быть написаны неправильно. Не вами, так вашими предшественниками.
-
-Правильнее, и **короче**, данный код можно записать так:
+Yes we do perform the check, and it's not going to blow. But trust me, you may
+forgot to check the container and then call `get`. There's another case: you
+have a check, but the conditional statement is complicated enough to be
+incorrect. And even unit tests may lie. Some of your colleagues may tend to
+tailor the unit tests for the code. We can rewrite the code above in a shorter
+and cleaner way:
 
     option getOrElse default
 
-Чем компактнее ваш код, тем легче найти в нем ошибку, и тем сложнее эту
-ошибку допустить. Существует полезный метод `orElse` который позволяет
-сцеплять различные `Option`.
+It's much easier to spot an error or bug in lesser amount of code. There's also
+`orElse` method that allows you to chain `Option` calls.
 
-Зачастую, вам нужно трансформировать значение внутри Option, если оно
-вообще там имеется. Для этого существует метод `map`, он вынимает
-значение, преобразовывает его, и упаковывает обратно в контейнер.
+Frequently you need to transform a value inside an `Option`, of course if its
+value is present. There's a method which is called `map`. It extracts a value
+from the `Option` performs transformation, and pushes it back to the container.
 
     val messageOpt = Some("Hello")
     val updMessageOpt = messageOpt.map(msg => "$mgs cruel world!")
 
     updMessageOpt: Option[String]
 
-
-А иногда бывает и такое:
+But sometimes we may have something like this:
 
     val messageOptOpt = Some(Some("Hello"))
 
-`Option` растут и безмерно вкладываются друг в друга. Эту проблему
-решает метод `flatMap`. Или метод `flatten`. Первый, работает аналогично
-`map`, Однако при этом делает структуру более.. "плоской", второй просто
-упрощает структуру:
+`Option`s could be tremendously nested, and you have to deal with it pretty
+often. `FlatMap` or `flatten` solve that problem. The first one works like `map`
+but it `flatten`s the resulting data structure. It will return the transformed
+value wrapped inside a single `Option`. The second one simply eliminates option
+nesting
 
     val updMessageOptOpt = messageOptOpt.flatMap(msg => "$mgs cruel world!")
-    updMessageOptOpt: Option[String]
+    res0: updMessageOptOpt: Option[String]
 
     messageOptOpt.flatten == Some("Hello")
-    > true
+    res1: Option[String] = Some(Hello)
 
-В `Scala` существует еще один механизм который заметно облегчает работу с
-`Option`, и это... `For comprehension`
+`Scala` has another mechanism that drastically eases work with `Option` and it
+is called `for comprehension`
 
     val ox = Some(1)
     val oy = Some(2)
@@ -75,21 +72,19 @@ Options
 
     // res0: Option[Int] = 6
 
-В случае, если какой-то из Option типов будет равен None. То после
-`yield` пользователь получит пустой контейнер, вернее значение пустого
-контейнера, в случае с `Option` это `None`. В случае со списком: `Nil`.
+If at least one of those `Options` equals `None` you will get None. If the same
+applied to lists, you will get `Nil` as the result.
 
-И главное, старайтесь сделать все, лишь бы не вызывать метод `get`.
-Извивайтесь ужом, выпрыгивайте из себя. `get` убивает не хуже никотина.
+And do whatever is possible to avoid direct `get` call. It may lead to potential
+problems.
 
 
-Литература
-==========
-[Здесь][opt-guide] очень хорошо описано, как лучше использовать `Option`
-Пускай многое в этом [видео][opt-video-1] вам не будет понятно, вернитесь
-к нему позже, когда понимание `Scala` станет немного лучше.
-
-[Шпаргалка][opt-cheat-sheet], которая, возможно, будет вам полезной.
+Further reading
+===============
+ - [Here](opt-guide) you may read about a proper usage of `Option`.
+ - Perhaps you may not understand even a 20% of [this](opt-video-1) talk, if so
+   come back a later when you will have better understanding of `Scala`.
+ - A [cheat sheet](opt-cheat-sheet) that might be useful.
 
 [opt-guide]: http://danielwestheide.com/blog/2012/12/19/the-neophytes-guide-to-scala-part-5-the-option-type.html
 [opt-video-1]: https://www.youtube.com/watch?v=gVXt1RG_yN0
