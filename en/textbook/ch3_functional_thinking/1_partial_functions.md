@@ -1,11 +1,10 @@
-Частичные функции
+Partial functions
 =================
-Частичные функции ([partial functions][pf-wiki]), это функции определенные на
-некоем подмножестве допустимых входных данных. В [этой][pf-no-phd] статье,
-данное явление очень хорошо и понятно описано.
+You may read the definition of partial functions [here][pf-wiki].
+[This][pf-no-phd] article describes partial functions pretty well.
 
-Так же, менее подробно частичные функции рассмотрены на
-[Scala School][ss-pf] и [блоге][aa-pf] Alvin Alexander.
+You may also read more about partial functions in [Scala School][ss-pf] and in
+Alvin Alexander's [blog][aa-pf].
 
 [pf-wiki]: https://en.wikipedia.org/wiki/Partial_function
 [pf-no-phd]: http://blog.bruchez.name/2011/10/scala-partial-functions-without-phd.html
