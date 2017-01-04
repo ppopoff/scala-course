@@ -88,7 +88,7 @@ a question: "Do I know what I'm doing?" That's why we need to use a `sealed`
 keyword.
 
 That's it. We've just created an idiomatic `Scala` enumeration. Which actually
-is not an enumeration. It's Algebraic Data Type or [ADT][1].
+is not an enumeration. It's Algebraic Data Type or [ADT][adt-wiki].
 
 Many types from the standard library are implemented as ADT's: List, Option,
 Try and lot's of others. If you wish to learn more, follow the links from
