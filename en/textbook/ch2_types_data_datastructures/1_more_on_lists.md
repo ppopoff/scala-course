@@ -78,10 +78,10 @@ more idiomatic than `List.empty` or `List()`.
 Further reading
 ===============
 You may learn more about lists and other collections on the
-[Twitter Scala School][tschool-col] website. Alvin Alexander wrote a bunch of
-handy tutorials about lists. You may find them [here][aal1] [here][aal2] and
-[here][aal3]. Official [documentation][list-doc] is always useful. AN empty list
-can be described with various notations, more info [here][empty-list]
+[Twitter Scala School](tschool-col) website. Alvin Alexander wrote a bunch of
+handy tutorials about lists. You may find them [here](aal1) [here](aal2) and
+[here](aal3). Official [documentation](list-doc) is always useful. AN empty list
+can be described with various notations, more info [here](empty-list)
 
 [tschool-col]: https://twitter.github.io/scala_school/collections.html
 [aal1]: http://alvinalexander.com/scala/scala-list-class-examples
