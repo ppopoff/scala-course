@@ -1,102 +1,98 @@
-Функции высшего порядка / Каррирование / Замыкания
-==================================================
+High order functions/ Currying / Closures
+=========================================
 
-## Введение
-Как вы могли заметить ранее, существует два способа
-[указания типа][types-fun-vals] функций в `Scala`:
+## Introduction
+As you may previously noticed `Scala` supports two ways of
+[type definition][types-fun-vals] for functions:
 
- - с использованием Generic: `f: Function2[Int, String, String]`
- - функциональный: `f: (Int, String) => String`
+ - object-oriented: `f: Function2[Int, String, String]`
+ - functional way: `f: (Int, String) => String`
 
-Использование конкретного типа зависит от ситуации. Однако, что в
-первом, что во втором случае, тип функции сложно читать. Рекомендуется
-связывать тип наиболее часто используемой функции с некоторым
-псевдонимом, например:
+Usage of the specific type depends on the situation. However reading and
+understanding the type is complicated in both cases. It's a common practice to
+alias widely used types. Like:
 
     type Action = () => Unit
 
-Выше продемонстрирована функция которая не принимает и не возвращает
-аргументов. В случае, если у вас используются Generic-параметры,
-вполне допустимо использовать для `Function1` функциональный стиль прямо
-на месте:
+Above you may see a function that doesn't accept any argument nor doesn't return
+any value. If you're using generics it's OK to use functional style for
+`Function1` typed objects:
 
     def map[B](f: A => B) = ...
 
-Указание типа функций, для функциональных языков, имеет смысл, так как
-в этих языках существует возможность принимать и передавать функции, в
-качестве аргументов. Но обо всем по порядку.
+Type denotation makes sense for functional languages because is possible to
+pass functions as arguments, and return them as values. We will cover this a bit
+later.
 
-## О хороших функцияx и композиции
-В лямбда-исчислении, функция должна принимать один аргумент и возвращать
-один аргумент. Собственно, функция должна иметь [арность][arity] 1. Поэтому в
-некоторых функциональных языках отсутствуют функции, `теоретически` принимающие
-более одного аргумента. Однако пользователи этого не замечают. Далее мы будем
-рассказывать о функциях с арностью 1, в виду наличия у них особых свойств.
+## About good functions and their composition
+A function (in lambda-calculus) must accept only one argument and return a
+single value. No more, no less. It means that every function must have
+[arity][arity] equal to 1. That's why some of functional languages lacks
+functions that theoretically accept more then one argument. But practically they
+do. Further this topic we will talk about functions of arity 1, because of their
+properties.
 
-Композиция функций ([function composition][fun-comp]) это простейший и основной
-способ комбинирования функций, основанный размещении функций таким
-образом, что выход одной функции, является входом для другой. Давайте
-рассмотрим две простые функции:
+[Function composition][fun-comp] is the simplest and the most fundamental way
+of function combination. It's a main building block of functional programming.
+The concept is simple output of the first function will be input for the second.
+Let's take look at the functions below
 
     def inc (x: Int) = x + 1
     def dup (x: Int) = x * 2
 
-Задача перед нами стоит следующая, собрать функцию, которая принимает
-целое число, добавляет к нему единицу, а затем удваивает.
+We have the following aim -- create a function that accepts an integral number
+adds one to it and then doubles that result.
 
     def incDup(x: Int) = dup(inc(x))
 
-Собственно, выше только что была продемонстрирована композиция функций.
-Во многих функциональных языках, например в `Haskell` существует
-поддержка особого синтаксиса для композиции функций:
+So, that was an example of function composition. Many functional languages
+like `Haskell` support a special type of syntax for function composition:
 
-    // Код на haskell
-    // объявили функции
+    -- some code in Haskell. Defining the functions.
     Prelude> let inc x = x + 1
     Prelude> let dup x = x * 2
 
-    // новая функция которая является результатом композиции
-    // передача и просовывание x подразумеваются синтаксисом :)
+    -- A new function that is result of composition of previous functions
+    -- syntax assumes that you are implicitly pass a single argument
     Prelude> let incDup = dup . inc
 
-    // проверяем результат
+    -- let's check the result
     Prelude> incDup 3
     8
 
-Давайте посмотрим на то, как это сделано в `SML`:
+Let's take a look how the same concept was implemented in `SML`:
 
-    (* Объявили наши функции *)
+    (* Defining the functions *)
     - fun inc(x: int) = x + 1;
     val inc = fn : int -> int
 
     - fun dup(x: int) = x * 2;
     val dup = fn : int -> int
 
-    (* подразумевается наличие неявного аргумента *)
+    (* Implicit argument passsage is assumed by language's syntax *)
     - val incDup = dup o inc;
     val incDup = fn : int -> int
 
-    (* проверим результат *)
+    (* Checking the result *)
     - incDup 3;
     val it = 8 : int
 
-`Scala` не является исключением, в ней тоже есть аналогичная операция,
-которая, кстати применима только к типу `Function1`. Итак, перепишем
-функцию `incDup` аналогичным образом:
+`Scala` is not an exception. It also has the same operation which is applicable
+only to `Function1` type. Let's rewrite the `incDup` function in `Scala`:
 
-    // Теперь Scala
+    // now Scala
     val incDup = dup _ compose inc _
 
-    // Вобщем, как-то так, да
+    // Quite informative :)
     incDup: Int => Int = scala.Function1$$Lambda$1098/1854577712@5d01ea21
 
-    // Проверяем результат
+    // Checking the result
     scala> incDup(3)
     res0: Int = 8
 
-Скорее всего, вы уже заметили что данные конструкции следует читать
-справа-налево. Не всем привычно, не всем удобно. Метод `andThen`
-позволяет задавать порядок применения функций слева-направо:
+As you may have noticed those constructions must be read from right to left.
+For some people it may be confusing. You can use `andThen` method that changes
+the order of function application:
 
     scala> val incDup2 = inc _ andThen dup _
     incDup2: Int => Int = scala.Function1$$Lambda$1112/312470853@23592946
@@ -106,24 +102,24 @@
     res4: Int = 8
 
 
-## Анонимные функции (лямбда выражения)
-[Читать][lambda-0] про [анонимные][lambda-1] функции (они же лямбды).
-Данные конструкции есть во всех современных языках, поэтому мы предполагаем
-что у вас наличествует представление о них.
-Про `Underscore syntax` (синтаксис с нижним подчеркиванием) вы можете прочитать
-[здесь][underscore-syntax].
+## Anonymous functions aka lambda expressions
+[Here][lambda-0] you may read about [anonymous][lambda-1] functions (aka
+lambdas). All modern programming languages support those constructs. That's why
+we assume that you have a basic understanding of the concept. It's quite popular
+to use `Underscore syntax` in lambda expressions (which in the most cases is
+not good practice). You may read about underscore syntax
+[here][underscore-syntax].
 
 
-## Функции высшего порядка (High order functions)
-Функцией [высшего порядка][high-order-0] может называться хотя бы одна
-из перечисленных ниже функций:
+## High order functions
+A function can be called [high order][high-order-0] if it satisfies at least one
+of the given conditions:
 
- - Функция, которая принимает другую функцию в качестве параметра
- - Функция, которая возвращает другую функцию
+ - it accepts another function as an argument
+ - returns another function
 
-Давайте подробнее рассмотрим первый случай. Представьте, что нам
-написать небольшое приложение которое чертит на экране график заданной
-функции. В первом приближении это может выглядеть так:
+Let's take a closer look at the first case. Imagine that we should write a small
+application that draws a plot for a given function. It may look like this:
 
     type Point = (Double, Double)
 
@@ -133,41 +129,41 @@
 
     val xs = -10.0 to 10.0 by 0.1
 
-    // Предположим у нас уже есть некая функция которая чертит график
-    // по заданным точкам
+    // Imagine that we have a function that draws a chart by given set of points
     def plot(points: Seq[Point]) = ???
 
     def plotFunction(name: Funname) = name match {
       case Sinus =>
-        // получаем список вычисленных значений
+        // get list of evaluated values
         val ys = (xs map math.sin)
-        // склеиваем значение абсциссы и ординаты
+        // glue xs and ys together
         val coords = xs zip ys
+        // plot them
         plot(coords)
       case Cosinus =>
-        // аналогично
+        // the same should be done here...
     }
 
-Иметь некое подобие `switch` не самая лучшая идея. Слишком много
-дублирующего кода. Вот, если бы можно было передать саму функцию...
+Having a `switch` statement is worst idea ever. To much duplicating code. If
+only we could pass a function itself...
 
-Для начала, конечно оговорим, что функция `plot` будет способна чертить
-только функцию для одного аргумента.
+At first, let's define a signature for `plot` function. In our case it will
+accept the only argument:
 
     type Plotfun = Double => Double
 
-    // Вот и все.
+    // That's it
     def plotFunction(fun: Plotfun): Unit = {
       val ys = xs map fun
       val coords = xs zip ys
       plot(coords)
     }
 
-    // Давайте сделаем заглушку для функции plot
+    // let's create a stub for plot function that will print the results
     def plot(coords: Seq[Point]) =
       coords.take(5) foreach println
 
-    // И проверим наши результаты
+    // and check our results
     scala> plotFunction(math.sin)
     (-10.0,0.5440211108893698)
     (-9.5,0.0751511204618093)
@@ -182,99 +178,93 @@
     (-8.5,-0.6020119026848236)
     (-8.0,-0.14550003380861354)
 
-Как видите функции `math.cos`, а также `math.sin` замечательно себя
-зарекомендовали. Написанный код будет работать для любой функции типа
-`Double => Double`.
+As you may see the `math.cos` and `math.sin` functions work in this `plot`.
+The code will accept any function that satisfies the `Double => Double` type.
 
-Когда нужно возвращать другую функцию?
-Наиболее распространенным случаем является каррирование, про него будет
-рассказано ниже. Достаточно понятный пример вы можете найти
-[здесь][high-order-2].
-
-Также про функции высшего порядка можно прочесть еще и
-[здесь][high-order-1].
+When should we return another function?
+The most common case is currying, which will be explained later in this topic.
+More examples can be found [here][high-order-2]. You may also get more
+information about high order functions [here][high-order-1].
 
 
-## Каррирование (Currying)
-[Техника][curry-0], которая позволяет рассматривать функцию с
-несколькими аргументами, в цепочку функций принимающих один аргумент.
-В некоторых функциональных языках, таких как Haskell все функции
-каррируются по умолчанию (и ничего страшного не происходит).
-Каррирование -- это достаточно сложная тема, на понимание которой у
-объектно-ориентированного уходит много времени. На самом деле все просто.
+## Currying
+A [technique][curry-0], that represents multi-argument function as a chain of
+single argument functions. In some functional languages like `Haskell` all
+functions are curried by default. Currying is quite complicated and it may time
+some time of object-oriented programmer to get used to it. But trust me it's
+simple and worth every minute of your time. It's not mandatory to use this
+technique everywhere you can. But there are many libraries out there which code
+you may use. And sometimes you have to understand that code. Currying is pretty
+popular among library designers.
 
-Усвоение этой техники необходимо. Использовать ее не обязательно, однако
-большинство библиотек использует каррирование. И чтобы понимать их код,
-вам придется эту технику освоить.
+> Currying represents the following process: A single multi-argument function
+> is segregated to chained single argument function calls. Let's say that out
+> multi-argument function accepts n arguments. So every next call we take -1
+> argument: n-1 for the first case till the last one when a single element left.
 
-> Проще говоря, каррирование представляет собой процесс разбиения
-> одной функции с несколькими аргументами на цепочку функций с одном
-> аргументом, которые возвращают функцию с n-1 аргументами, которая
-> возвращать функцию с n-2 аргументами, пока дело не дойдет до
-> последнего, единственного аргумента
+Before you perform a deep-dive into currying we'd like to show you an
+alternative way to describe function signatures in `Scala` and other functional
+languages:
 
-Перед тем как объяснять каррирование, я расскажу вам об альтернативном
-способе указания типов функций в `Scala` и других функциональных языках:
-
-    // Тип этой функции String => String
-    // функция из одного строкового аргумента, возвращающя строку
+    // This function has String => String type
+    // function accepts a single string argument and returns another string
     def sayMyName(name: String): String = "Your name: name"
 
-    // Тип этой функции (String, String) => String
+    // Type of this function is (String, String) => String
     def concat(first: String, second: String) = first + second
 
-Любую функцию принимающую более одного элемента, можно представить
-как цепочку функций, принимающих один аргумент.
+Any function that accepts more then one element can be represented as a chain
+of function that accept one argument:
 
-    // Перепишем эту же функцию используя нотацию для каррирования
-    // Тип этой функции String => String => String
+    // Let's rewrite this function by using currying notation
+    // Type of this function should be String => String => String
     def concat(first: String)(second: String) = first + second
 
-    // Давайте проверим как она работает
+    // And let's check whether it works.
     сoncat("Hello")(" world")
     // res1: String = Hello world
 
-Для чего необходимо каррирование, в первую очередь для повторного
-использования кода:
+Currying saves us from writing lots of duplicates.
 
-    // говорит "Привет" каждому пользователю вошедшему в систему:
+    // Says "Hello" to any logged in user:
     def sayHello(name: String): String = ???
 
-И конечно же, мы можем реализовать эту функцию так:
+And of course we can implement this function like:
 
     def sayHello(name: String) = "Hello " + name
 
-А можем повторно использовать общую функцию `concat`:
+but we can use a more generic function which is called `concat`:
 
     val greet = concat("Hello ")_
     // greet: String => String = $$Lambda$1170/364266169@518bfd90
 
-И что мы получили? Вместо функции `(String, String) => String` мы получили
-функцию `String => String`
+What did we get? Instead of `(String, String) => String` we obtained
+`String => String`
 
     greet("Robert")
     // res8: String = Hello Robert
 
-Из всех статей, посвященный каррированию, мы рекомендуем [эту][curry-1].
-Достаточно неплохо, карирование описано [здесь][curry-2] и
-[здесь][curry-5]. Про то как каррирование работает в байткоде написано
-[здесь][curry-4].
+There are many posts and articles about currying, but we would recommend
+[this one][curry-1]. A good explanation can be found [here][curry-2],
+[here][curry-3] and [here][curry-5]. [Here][curry-4] You may read how it's
+implemented in byte code.
 
 
-## Замыкания (Closures)
-Про замыкания хорошо написано [здесь][closures-0] и [здесь][closures-1].
-[Статья][closures-2], которая может показаться вам достаточно понятной.
+## Closures
+You may read about `Scala` closures [here][closures-0] and [here][closures-1].
+There's an [article][closures-2] that you may find useful.
 
 
-Литература
-==========
+Further reading
+===============
+ - More about function composition you may read on [Twitter Scala School][ss-pm]
+   website
+
+
 [types-fun-vals]: http://docs.scala-lang.org/style/types.html#function-values
 [arity]: https://en.wikipedia.org/wiki/Arity
 [ss-pm]: http://twitter.github.io/scala_school/pattern-matching-and-functional-composition.html#composition
-
 [fun-comp]: https://en.wikipedia.org/wiki/Function_composition_(computer_science)
-[pm-fun-comp]: https://twitter.github.io/scala_school/pattern-matching-and-functional-composition.html#composition
-
 [underscore-syntax]: http://stackoverflow.com/a/7678951/1655785
 
 [curry-0]: https://en.wikipedia.org/wiki/Currying
