@@ -1,21 +1,18 @@
-Генераторы списков
+For comprehensions
 ==================
-Главное, что вам следует знать про генераторы списков, или как их еще
-называют `for comprehensions`, то, что основное их предназначение
-не в реализации циклов.
+The main thing you need to know about `list generators` aka `for comprehensions`
+that they were not designed to be a loop implementation.
 
-Данную синтаксическую конструкцию можно использовать не только для
-итерации по элементам коллекций, и фильтрации. Более того, использование
-подобной конструкции для итерации будет достаточно дорогостоящей
-процедурой. Цикл `while` или использование хвостовой рекурсии будут для
-вас намного дешевле.
+This syntactic construct can be used not only for iteration, you can use it for
+filtering. Moreover this construct is pretty expensive for iteration. Using tail
+recursion or `while` loop will be more effective.
 
-`For comprehension` представляет собой синтаксический сахар для методов
-`map`, `flatMap` и `withFilter`. Ключевое слово `yield` используется
-для последующей агрегации значений в результирующей структуре.
+`For comprehension` is a syntactic sugar for `map`, `flatMap` and `withFilter`
+methods. A `yield` keyword is used for further data aggregation in the resulting
+structure (a structure that was operated).
 
-Замечательнейшее [видео][fors-video], в котором подробно рассказывается
-все что вы хотели знать про генераторы списков. Здесь рассказывается
-про все, с чем богата данная конструкция.
+An amazing [video][fors-video], that will tell you all you want to know about
+for comprehensions.
 
 [fors-video]: https://www.youtube.com/watch?v=WDaw2yXAa50
+
