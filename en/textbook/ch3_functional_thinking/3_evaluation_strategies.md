@@ -1,39 +1,36 @@
-Стратегии вычисления (Evaluation strategies)
-============================================
-Статья на [wikipedia][eval-strategy]
+Evaluation strategies
+=====================
+A [wikipedia][eval-strategy] article about the subject.
 
 
-Вызов по ссылке/значению
+Call by reference/value
 ========================
-В англоязычной литературе называется как Call by reference и Call by
-value. Работает аналогично `Java` или `C#`. По ссылке передаются
-наследники [`AnyRef`][anyref], по значению передаются наследники
-[`AnyVal`][anyval]. Аргументы переданные функции одним из этих двух способов
-будут вычислены в момент вызова данной функции. В отличии от Call by
-name...
+In `Scala` works the same way as it works for `Java` and `C#`. All subtypes of
+[`AnyRef`][anyref] are passed by reference. All subtypes of [`AnyVal`][anyval]
+are passed by value. All those arguments will be evaluated right before the
+function call. That what makes both different from Call by name.
 
 
 Call by name
 ============
-Стратегия вычислений, при которой аргумент функции вычисляется каждый
-раз когда его используют внутри тела функции. На данный момент лучшая
-[статья][call-by-name], по субъективному мнению одного из авторов.
-Так же, достаточно простое и понятное [объяснение][scala-by-name-par].
+Evaluation strategy where function's argument is evaluated each time it used
+inside function's body. There's a best (in my humble opinion)
+[article][call-by-name] that explains this strategy. There's also good a good
+explanation [here][scala-by-name-par].
 
 
 Call by need
 ============
-Стратегия вычислений, при которой аргументы вычисляются только тогда
-когда впервые используются внутри тела функции. Представляет собой
-[мемоизированный][memoization] вариант для Call by name. В явном виде в
-`Scala` не используется, только как часть Call by name.
+Evaluation strategy where arguments are evaluated only during the first usage
+inside the function body. You may think about it as [memoized][memoization]
+variant of Call by name. It's not used in `Scala` implicitly but can be
+emulated.
 
 
 Call by future
 ==============
-Стратегия вычислений, при которой аргументы функции выполняются
-конкурентно внутри тела функции. В `Scala` присутствуют `Futures`,
-поэтому подобная стратегия тоже имеет место быть.
+Evaluation strategy where arguments are evaluated concurrently inside the
+function body. `Scala` has `Futures` so it also adopts this strategy.
 
 [eval-strategy]: https://en.wikipedia.org/wiki/Evaluation_strategy
 [anyref]: http://www.scala-lang.org/api/current/scala/AnyRef.html
