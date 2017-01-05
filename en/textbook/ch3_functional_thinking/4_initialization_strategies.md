@@ -1,17 +1,17 @@
-Стратегии инициализации
-=======================
-Существует два типа [инициализации][init]: жадная (eager), и
-[ленивая][lazy] (lazy).
-Как известно, во многих объектно-ориентированных языках существует
-[паттерн][delayed], называемый "Отложенная инициализация". В случае `Scala`,
-этот паттерн встроен в язык. Отложенная инициализация активируется
-ключевым словом `lazy`. Жадная инициализация работает по умолчанию.
+Initialization strategies
+==========================
+There are two [initialization strategies][init]: eager and [lazy][lazy].
+Many object oriented languages support "Delayed Initialization" design
+[pattern][delayed]. This pattern is built inside `Scala` and you can activate
+it with `lazy` keyword. Eager initialization is the default one. There are some
+lazy languages (languages with lazy initialization by default), `Haskell` is a
+great example.
 
 
-Литература
-==========
-Достаточно общая [статья][impl-laziness] о ленивых вычислениях.
-О том что под капотом, можете узнать [здесь][lazy-vals-under-hood].
+Further reading
+===============
+A very generic [article][impl-laziness] about lazy computations. What's under
+the hood of `Scala`'s implementation you may learn [here][lazy-vals-under-hood].
 
 [init]: https://en.wikipedia.org/wiki/Initialization_(programming)
 [lazy]: https://en.wikipedia.org/wiki/Lazy_initialization
