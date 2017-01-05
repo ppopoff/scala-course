@@ -1,12 +1,12 @@
-Задания для главы 3
-===================
+Assignments for chapter 3
+=========================
 
-## Чистота и побочные эффекты.
-Для имеющегося кода в файле `SideEffects.scala`, проставить аннотацию
-`@SideEffect` там где по вашему мнению проявляются побочные эффекты.
+## Purity and side-effects
+For code in file `SideEffects.scala`, add `@SideEffect` where as you think side
+effects take their places.
 
-## Функции высшего порядка.
-Для созданного ранее списка рекурсивно реализовать следующие функции:
+## High order functions
+For previously defined list, **recursively** implement the following methods:
 
     def map [B] (f: (A) => B): List[B]
     def filter (predicate: (A) => Boolean): MyList[A]
@@ -17,21 +17,19 @@
 
 
 ## Partial functions
-Реализовать данную функцию, для вашего списка:
+Implement the following function for your list:
 
-    // создает новую коллекцию путем применения частичной
-    // функции ко всем элементам данного листа, на которых
-    // определена данная функция
+    // creates a new collection by its partial application to all elements
+    // of given list where this function is defined
     def collect(pfun: PartialFunction[A,B]): MyList[B]
 
 
-## Каррирование
-Добавить к вашему списку следующие функции:
+## Currying
+Add the following methods to your list:
 
     def foldLeft [B] (z: B) (operator: (B, A) => B): B
     def foldRight [B] (z: B) (operator: (A, B) => B): B
 
-Используя указанные выше функции, в отдельном файле реализовать
-функции `reduceLeft` и `reduceRight` для целочисленного и вещественного
-(`Double`) типов.
+By using function that were defined above, **in a separate file** implement
+`reduceLeft` and `reduceRight` for both `Int`egral and `Double` types.
 
