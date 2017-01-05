@@ -1,26 +1,25 @@
-Ленивые коллекции [факультативно]
-=================================
-Этот раздел посвящен ленивым коллекциям `Scala`, именуемым
-[`Streams`][scaladoc], большая просьба не путать из с *Java 8 Streams*, это
-совершенно разные вещи. К вам будет еще одна просьба: не путать
-`scala.collection.immutable.Stream` с `Akka streams` или `Reactive Streams`.
-К большому сожалению слово `Stream` обильно переиспользовано не только рамках
-платформы `JVM`, но и в рамках экосистемы `Scala`.
+Lazy collections [optional]
+===========================
 
-Характерной чертой ленивых коллекций в `Scala`, является то что они мемоизируют
-(memoize) результат (удерживают его в памяти), поэтому они совершенно не
-подходят для создания бесконечных структур данных, популярных
-во многих функциональных языках.
+This topic is all about lazy collections in `Scala`. They are called
+[`Streams`][scaladoc] which is quite ingenious this days. Please do not confuse
+them with *Java 8 Streams* they are completely different. Also you should not
+confuse them  (`scala.collection.immutable.Stream`) with `Akka streams` or
+`Reactive Streams`. Unfortunately this word is overused not only inside `JVM`,
+but inside `Scala` ecosystem.
 
-Неплохим введением в `Streams` послужит [раздел][streams-intro] книги
-`Scala Cookbook`. Наглядный пример описан [здесь][streams-intro-2]. Более
-подробно про сложности работы с данным типом коллекций, написано в
-[первой][streams-1] и [второй][streams-2] части статьи.
+The most important thing you should know about `Scala`'s lazy collection that
+they memoize the computations in memory. That's why they can not be used to
+create infinite data structures which are popular in the most functional
+languages.
 
-Про данный тип коллекций знать надо, но на практике, чаще всего, используется
-реализация не из стандартной библиотеки, а из `scalaz`.
+A good [introduction][streams-intro] to `Streams`. A part of  `Scala Cookbook`.
+A very descriptive example can be found [here][streams-intro-2].
+About possible issues with lazy collections in `Scala` you may read in the
+[first][streams-1] and the [second][streams-2] parts of an article.
 
-Практических заданий для данного раздела не предусмотрено.
+You should know about this type of collections, but I bet you wont' use it in
+production. There will be no practical tasks about this topic.
 
 [scaladoc]: http://www.scala-lang.org/api/current/scala/collection/immutable/Stream.html
 [streams-intro]: http://alvinalexander.com/scala/how-to-use-stream-class-lazy-list-scala-cookbook
