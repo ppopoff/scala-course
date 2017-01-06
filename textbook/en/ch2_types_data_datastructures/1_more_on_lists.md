@@ -41,7 +41,7 @@ can pattern match list items, so there no need to call `head/tail` explicitly:
 > operation that has algorithmic complexity O(1). If you're going to write at
 > the end of that list, the complexity will be O(n). Please, keep that in mind.
 
-## optional list
+## Optional list
 I do read a lot of code that was created by `Scala` newbies. And I often see
 the following anti-pattern, where it could be avoided: `Option[List[A]]`. And
 every time I see it, I ask the writer to explain himself. List is like a single
