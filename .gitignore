@@ -2,8 +2,8 @@
 *.sw*
 
 # sbt files
-code/target/*
-code/project/*
+codebook/target/*
+codebook/project/*
 
 # idea project files
 code/.idea/
