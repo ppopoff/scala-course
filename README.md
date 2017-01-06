@@ -61,13 +61,13 @@ build HTML file. But you must have UNIX environment and `pandoc` installed.
 Before you start completing the exercises you should definitely read the course
 material. Course contains a number of chapters:
 
-  - [Chapter 0. Beginning Scala](en/textbook/ch0_beginning_scala)
-  - [Chapter 1. Pattern matching](en/textbook/ch1_pattern_matching)
-  - [Chapter 2. Types, Data, Data Structures](en/textbook/ch2_types_data_datastructures)
-  - [Chapter 3. Functional Thinking](en/textbook/ch3_functional_thinking)
-  - [Chapter 4. Collections and Comprehensions](en/textbook/ch4_collections_and_forcomps)
-  - [Chapter 5. Out of standard library](en/textbook/ch5_out_of_standard_library)
-  - [Chapter 6. Conclusion](en/textbook/ch6_conclusion)
+  - [Chapter 0. Beginning Scala](textbook/en/ch0_beginning_scala)
+  - [Chapter 1. Pattern matching](textbook/en/ch1_pattern_matching)
+  - [Chapter 2. Types, Data, Data Structures](textbook/en/ch2_types_data_datastructures)
+  - [Chapter 3. Functional Thinking](textbook/en/ch3_functional_thinking)
+  - [Chapter 4. Collections and Comprehensions](textbook/en/ch4_collections_and_forcomps)
+  - [Chapter 5. Out of standard library](textbook/en/ch5_out_of_standard_library)
+  - [Chapter 6. Conclusion](textbook/en/ch6_conclusion)
 
 And now, let's take a closed look to each chapter:
 
@@ -168,13 +168,13 @@ Textbook представляет собой набор глав, предста
 Перед выполнением заданий из каждой главы, следует ознакомиться с
 соответствующим главе разделом textbook. Курс разбит на следующие главы:
 
-  - [Глава 0. Подступаемся к Scala](ru/textbook/ch0_beginning_scala)
-  - [Глава 1. Сопоставление с образцом](ru/textbook/ch1_pattern_matching)
-  - [Глава 2. Типы, данные, структуры данных](ru/textbook/ch2_types_data_datastructures)
-  - [Глава 3. Функциональное мышление](ru/textbook/ch3_functional_thinking)
-  - [Глава 4. Коллекции, и генераторы](ru/textbook/ch4_collections_and_forcomps)
-  - [Глава 5. За пределами стандартной библиотеки](ru/textbook/ch5_out_of_standard_library)
-  - [Глава 6. Заключение](ru/textbook/ch6_conclusion)
+  - [Глава 0. Подступаемся к Scala](textbook/ru/ch0_beginning_scala)
+  - [Глава 1. Сопоставление с образцом](textbook/ru/ch1_pattern_matching)
+  - [Глава 2. Типы, данные, структуры данных](textbook/ru/ch2_types_data_datastructures)
+  - [Глава 3. Функциональное мышление](textbook/ru/ch3_functional_thinking)
+  - [Глава 4. Коллекции, и генераторы](textbook/ru/ch4_collections_and_forcomps)
+  - [Глава 5. За пределами стандартной библиотеки](textbook/ru/ch5_out_of_standard_library)
+  - [Глава 6. Заключение](textbook/ru/ch6_conclusion)
 
 А теперь, давайте подробнее рассмотрим каждую из глав:
 
