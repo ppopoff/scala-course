@@ -10,8 +10,8 @@ code/.idea/
 .idea
 
 # idea files inside textbook project
-ru/textbook/.idea
-en/textbook/.idea
+textbook/ru/.idea
+textbook/en/.idea
 
 # generated html book
 assembly/book.html
