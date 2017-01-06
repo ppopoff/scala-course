@@ -7,7 +7,7 @@
 # the whole file
 all_chapters=""
 
-for chapter in ../ru/textbook/*/ ; do
+for chapter in ../textbook/ru/*/ ; do
   chapter_text=`eval cat $chapter*`
   all_chapters="$all_chapters\n\n$chapter_text"
 done
