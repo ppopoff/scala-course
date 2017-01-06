@@ -8,7 +8,6 @@ simplified too. But for now we're talking about actual `2.12` collections, which
 didn't change much since `Scala 2.8`. And yes, they were re-implemented once in
 `2.8` why should they stay the same :)?
 
-
 ## Overview
 At the beginning we would recommend you to read a brief review from Alvin
 Alexander's [article][overview_1_aa]. The description here is simple enough to
@@ -32,6 +31,8 @@ Always prefer immutable collections. They are co-variant and thread-safe. If
 you are using mutable collections always use `mutable` prefix. You may read
 more about best practices [here][collections_best_practices].
 
+The architecture of `Scala` collections is explained [here][arch]
+
 
 ## Parallel collections
 Since `2.9` `Scala` supports parallel collections. You may read a book about
@@ -54,7 +55,6 @@ considering `Spark` may be a better option.
 If you are going to use parallel collections. Do not perform side-effects
 operations. They can be a source of race conditions.
 
-
 [overview_1_aa]: http://alvinalexander.com/scala/understanding-scala-collections-hierarchy-cookbook
 [overview_2]: http://www.47deg.com/blog/adventures-with-scala-collections
 [lacks_truth]: http://www.deadcoderising.com/scala-collections-the-basics/
@@ -62,6 +62,7 @@ operations. They can be a source of race conditions.
 [cake_pattern]: http://www.cakesolutions.net/teamblogs/2011/12/19/cake-pattern-in-depth
 [collections_best_practices]: https://twitter.github.io/effectivescala/#Collections-Use
 
+[arch]: http://docs.scala-lang.org/overviews/core/architecture-of-scala-collections.html
 
 [parallel_brief]: http://alvinalexander.com/scala/how-to-use-parallel-collections-in-scala-performance
 [parallel_doc]: http://docs.scala-lang.org/overviews/parallel-collections/overview.html
