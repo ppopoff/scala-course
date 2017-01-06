@@ -23,7 +23,9 @@ Further reading
 `Scala` has it's own [Scala Style Guide][style-guide]. We also recommend you
 yo watch an amazing talk given by Martin Odersky (the creator of `Scala`):
 [Scala with Style][scala-with-style] and [style guide][databricks-guide] by
-`Databricks`.
+`Databricks`. You should also read [Effective Scala][effective-scala]. It's not
+that big as `Effective Java` if you're familiar with that. It's a short article
+that worth reading for every `Scala` developer.
 
 Books
 =====
@@ -39,6 +41,7 @@ keep up with changes in `2.12`. I would also recommend `Atomic Scala` when
 it will be synchronized with the latest version.
 
 [style-guide]: http://docs.scala-lang.org/style/
+[effective-scala]: https://twitter.github.io/effectivescala/
 [scala-with-style]: https://www.youtube.com/watch?v=kkTFx3-duc8
 [databricks-guide]: https://github.com/databricks/scala-style-guide
 [scala-impatient]: https://www.amazon.com/Scala-Impatient-2nd-Cay-Horstmann/dp/0134540565/

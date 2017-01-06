@@ -25,7 +25,10 @@
 [Scala Style Guide][style-guide]. Так же очень вам рекомендую ознакомиться с
 выступлением Мартина Одерского (создателя Scala):
 [Scala with Style][scala-with-style] и [руководством][databricks-guide] по
-стилю от компании `Databricks`.
+стилю от компании `Databricks`. Также настоятельно рекомендуем вам прочесть
+[Effective Scala][effective-scala], это не настолько большой труд, как например,
+`Effective Java` это достаточно короткая статья с которой должен быть знаком
+каждый `Sсala`-разработчик.
 
   - Scala for the Impatient (2nd Edition) by Cay S. Horstmann вы можете
   найти ее [здесь][scala-impatient]
@@ -40,6 +43,7 @@ Scala то смело можете знакомиться с этой книго
 
 
 [style-guide]: http://docs.scala-lang.org/style/
+[effective-scala]: https://twitter.github.io/effectivescala/
 [scala-with-style]: https://www.youtube.com/watch?v=kkTFx3-duc8
 [databricks-guide]: https://github.com/databricks/scala-style-guide
 [scala-impatient]: https://www.amazon.com/Scala-Impatient-2nd-Cay-Horstmann/dp/0134540565/
