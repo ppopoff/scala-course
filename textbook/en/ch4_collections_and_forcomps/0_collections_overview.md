@@ -20,8 +20,8 @@ learned that collections library consists of three parts:
   - `scala.collection.immutable`
 
 `Traversable` in on the top of the hierarchy. It defines the most basic
-operations that `Scala` collection has to offer. Some [sources][lacks_truth] are
-saying that it contains only the `foreach` method. If I were you I
+operations that `Scala` collection has to offer. Some sources are saying that it
+contains only the `foreach` method. If I were you I
 [wouldn't trust][methods_from_traversable_like] them. Collections library is
 using *Cake pattern*. You may read more about this pattern [here][cake_pattern]
 if you wish. The essence of this pattern to increase the amount of atomic traits
@@ -31,7 +31,16 @@ Always prefer immutable collections. They are co-variant and thread-safe. If
 you are using mutable collections always use `mutable` prefix. You may read
 more about best practices [here][collections_best_practices].
 
-The architecture of `Scala` collections is explained [here][arch]
+The most notorious collection types reviewed [here][collections]. You may find
+there a description of basic collection methods defined for each trait. To
+learn more about any specific collection type you can use the api
+[documentation][scaladoc].
+The architecture of `Scala` collections is explained [here][arch].
+
+
+## Arrays and Strings
+In `Scala` arrays are *invariant* [collections][collections_arrays]. Strings
+are collections [too][collections_strings].
 
 
 ## Parallel collections
@@ -57,12 +66,16 @@ operations. They can be a source of race conditions.
 
 [overview_1_aa]: http://alvinalexander.com/scala/understanding-scala-collections-hierarchy-cookbook
 [overview_2]: http://www.47deg.com/blog/adventures-with-scala-collections
-[lacks_truth]: http://www.deadcoderising.com/scala-collections-the-basics/
 [methods_from_traversable_like]: http://bit.ly/2hX38tv
 [cake_pattern]: http://www.cakesolutions.net/teamblogs/2011/12/19/cake-pattern-in-depth
 [collections_best_practices]: https://twitter.github.io/effectivescala/#Collections-Use
 
 [arch]: http://docs.scala-lang.org/overviews/core/architecture-of-scala-collections.html
+[scaladoc]: https://www.scala-lang.org/api/current/index.html
+
+[collections]: http://docs.scala-lang.org/overviews/collections/introduction
+[collections_arrays]: http://docs.scala-lang.org/overviews/collections/arrays.html
+[collections_strings]: http://docs.scala-lang.org/overviews/collections/strings
 
 [parallel_brief]: http://alvinalexander.com/scala/how-to-use-parallel-collections-in-scala-performance
 [parallel_doc]: http://docs.scala-lang.org/overviews/parallel-collections/overview.html
