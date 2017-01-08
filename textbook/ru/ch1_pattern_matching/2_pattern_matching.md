@@ -41,9 +41,32 @@
 Как вы уже наверное заметили, в предыдущем разделе, оператор связывания
 позволяет так же сопоставлять с образцом.
 
+`Scala` так же имеет синтаксический сахар для сопоставления с образцом внутри
+функций:
+
+    // до
+    list.filter(item => item match {
+      case phone: Cellphone => true
+      case _ => false
+    }
+
+    // после
+    list.filter {
+      case phone: Cellphone => true
+      case _ => false
+    }
+
+Вы можете исопльзовать сопоставление с образцом в теле любой функции,
+принимающей один аргумент. `Scala` скомпилирует данную операцию в
+`PartialFunction`, которая, в свою очередь является сабклассом для `Function1`
+
+Вы также можете использовать сопоставление с образцом для сопоставления
+регулярных выражений. Больше информации, вы можете найти [здесь][pm-regex].
+
 [video-tutorial]: https://www.youtube.com/watch?v=1vxIRkYZfmc
 
 [apply]: https://twitter.github.io/scala_school/basics2.html#apply
 [unapply]: http://docs.scala-lang.org/tutorials/tour/extractor-objects.html
 [pm-tutor]: http://docs.scala-lang.org/tutorials/tour/pattern-matching
+[pm-regex]: https://www.scala-lang.org/api/2.12.x/scala/util/matching/Regex.html
 

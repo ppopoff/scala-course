@@ -37,9 +37,31 @@ you to watch this video because it rocks. We also recommend you
 
 As you may have noticed the assignment operator does the pattern matching.
 
+`Scala` has a syntactic sugar for pattern matching that works inside a function
+body:
+
+    // before
+    list.filter(item => item match {
+      case phone: Cellphone => true
+      case _ => false
+    }
+
+    // after
+    list.filter {
+      case phone: Cellphone => true
+      case _ => false
+    }
+
+You can use pattern matching inside any `Function1`'s body. `Scala` will compile
+this operation to `PartialFunction` instance, which is a subtype of `Funciton`.
+
+You can also use pattern matching for regular expressions. You may find
+more details [here][pm-regex].
+
 [video-tutorial]: https://www.youtube.com/watch?v=1vxIRkYZfmc
 
 [apply]: https://twitter.github.io/scala_school/basics2.html#apply
 [unapply]: http://docs.scala-lang.org/tutorials/tour/extractor-objects.html
 [pm-tutor]: http://docs.scala-lang.org/tutorials/tour/pattern-matching
+[pm-regex]: https://www.scala-lang.org/api/2.12.x/scala/util/matching/Regex.html
 
