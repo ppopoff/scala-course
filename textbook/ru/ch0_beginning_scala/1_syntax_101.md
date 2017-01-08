@@ -65,6 +65,33 @@ Syntax 101
          |   carrots + onions
          | }
 
+## Imports
+`Scala` позволяет вам делать импорты намного короче (в сравнении с Java), однако
+в большинстве случаев пользуются традиционными длинными явовскими импортами,
+за исключением тех случаев, когда надо что-то переименовать. Посмотрите, что
+`Scala` может сделать с вашими импортами:
+
+    // импортируем все
+    import my.librarly._
+
+    // импртируем только Map и Set
+    import scala.collection.immutable{Map, Set}
+
+    // импортируем Map как MutableMap (переименовываем)
+    import scala.collection.mutable.{Map => MutableMap}
+
+    // импортируем все заисключением Map и Set
+    import scala.collection.mutable.{Map => _, Set => _}
+
+    // вы также можете использовать вложенные импорты
+    // объект Scalaz находится внутри пакета scalaz
+    import scalaz._, Scalaz._
+
+Вы можете узнать больше об импортах [здесь][imports-in-scala]. Вы так же можете
+импортировать все что вам вздумается *внутри*: методов, классов, объектов,
+блоков. Используйте эту возможность с умом. `Scala` также позволяет вам
+использовать относительные импорты.
+
 
 ## Коллекции
 ### Массивы
@@ -73,8 +100,7 @@ Syntax 101
     val anArray = Array(9, 8, 7, 6, 5)
     val anArray: Array[Int] = Array(9, 8, 7, 6, 5)
 
-Более того, в отличии от `Java`, в `Scala` массивы являются
-инвариантными.
+Более того, в отличии от `Java`, в `Scala` массивы являются инвариантными.
 
 ### Списки
 Списки можно сконструировать следующим образом:
@@ -117,4 +143,5 @@ Syntax 101
 [sicp]: https://en.wikipedia.org/wiki/Structure_and_Interpretation_of_Computer_Programs
 [lists]: https://www.tutorialspoint.com/scala/scala_lists.htm
 [seq_list]: http://stackoverflow.com/a/10866807/1655785
+[imports-in-scala]: https://www.scala-lang.org/docu/files/ScalaReference.pdf#page=58
 

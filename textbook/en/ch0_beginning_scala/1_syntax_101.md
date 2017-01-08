@@ -58,6 +58,32 @@ returned:
          | }
 
 
+## Imports
+`Scala` allows you to make imports much shorter (compared to Java). But in the
+most of the cases, folks is staying with traditional java-like imports, except
+the cases when they need to alias an imported type. Look what `Scala` can do to
+your imports.
+
+    // import all
+    import my.librarly._
+
+    // import only specific items
+    import scala.collection.immutable{Map, Set}
+
+    // rename Map to MutableMap
+    import scala.collection.mutable.{Map => MutableMap}
+
+    // exclude Map and Set from import
+    import scala.collection.mutable.{Map => _, Set => _}
+
+    // You can also use nested imports
+    // Scalaz object is located inside scalaz package
+    import scalaz._, Scalaz._
+
+You can read more about imports [here][imports-in-scala]. You can also import
+the stuff you want *inside* a method, class, object, block. But use this feature
+only when you really need it. `Scala` allows you to use relative imports.
+
 
 ## Collections
 ### Arrays
@@ -110,4 +136,5 @@ For further reading
 [sicp]: https://en.wikipedia.org/wiki/Structure_and_Interpretation_of_Computer_Programs
 [lists]: https://www.tutorialspoint.com/scala/scala_lists.htm
 [seq_list]: http://stackoverflow.com/a/10866807/1655785
+[imports-in-scala]: https://www.scala-lang.org/docu/files/ScalaReference.pdf#page=58
 
