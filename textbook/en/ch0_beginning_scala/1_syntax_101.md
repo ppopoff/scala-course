@@ -27,6 +27,38 @@ using `void` type for that purpose. Scala has it's own `void`, and it's called
     val unit: Unit = ()
 
 
+## Code blocks
+Sometimes you have tell more than usual. And some languages are forcing you to
+create a separate function for it. `Scala` has a construct which is called
+block:
+
+    val block = {
+      println("hello")
+      println("world")
+    }
+
+    // hello
+    // world
+    // block: Unit = ()
+
+Blocks are expressions, and they are useful when you are not satisfied with
+oneliners. Blocks allow nesting. The value of the last line of the block is
+returned:
+
+    scala> val block2 = {
+         |   // it can be relaced with oneliner But I'm here
+         |   // to demonstrate you block nesting
+         |   val carrots = {
+         |     1 + 2
+         |   }
+         |
+         |   val onions = 2
+         |
+         |   carrots + onions
+         | }
+
+
+
 ## Collections
 ### Arrays
 Arrays in `Scala` are collections:
