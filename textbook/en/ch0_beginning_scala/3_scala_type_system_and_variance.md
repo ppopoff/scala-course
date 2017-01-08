@@ -15,6 +15,15 @@ versions of `Scala`, won't have them too. Save your time for something bigger.
 An [article][variance], that will give you a good explanation of variance in
 `Scala`.
 
+## Rules of variance
+
+  - If you have a mutable container -- make it invariant.
+  - If you have an immutable container -- make it covariant.
+  - If you have a transformation (like function):
+    - Input: covariant
+    - Output: contrvariant
+
+
 ## Value types
 also exists in `Scala` you can find more information [here][value-types].
 
