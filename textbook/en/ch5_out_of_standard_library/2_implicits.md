@@ -11,7 +11,8 @@ with additional functionality (aka `extension methods`).
  - Implicit conversions. [Here][impl-conversions] and [here][impl-conversions-2]
    you may read about them.
  - Implicit classes (can be used to provide extension methods). More information
-   [here][impl-classes].
+   [here][impl-classes]. They are represented as an `implicit` classes and
+   objects.
 
 
 ### Implicit lookup
