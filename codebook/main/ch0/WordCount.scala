@@ -1,6 +1,7 @@
 // note that logical package structure may not correspond with
 // folder structure as it ts in Java
 package scalacourse
+package ch0
 
 
 // Unlike Java it's not required to have a class that
