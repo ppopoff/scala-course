@@ -1,8 +1,8 @@
 Assignment for Chapter 1
 ========================
 
-Here you will master recursion and pattern matching. There's no place to tell
-about the recursion, because we expect that you learned it in high-school.
+Here you will master recursion and pattern matching. We are not covering the
+recursion topic, because we expect you to know it from your high-school.
 All of those tasks should be solved recursively with help of pattern matching.
 
 ## Exercise 1
