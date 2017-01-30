@@ -1,14 +1,14 @@
-Чистота функций
+﻿Чистота функций
 ===============
 
 В этом разделе вам предлагается ознакомиться со следующими понятиями:
 чистой функции (pure function), [side-effect][side-effect-wiki].
 
 Про чистые функции замечательно рассказано в статье
-[The Definition of "Pure Function"][pure-fun-def], а так же в ее
+[“The Definition of "Pure Function”][pure-fun-def] и в ее
 [продолжении][pure-fun-def-2]. Все достаточно понятно, просто и разжевано.
 
-Основные концепции изложены тем же автором ранее, в следующих статьях:
+Основную концепцию тот же автор изложил раньше в следующих статьях:
 
  - [Scala programming best practice: Prefer immutable variables (values)][idiom-1]
  - [Scala best practice: Create methods that have no side effects (pure functions)][idiom-2]
@@ -23,4 +23,5 @@
 [idiom-2]: http://alvinalexander.com/scala/how-to-create-scala-methods-no-side-effects-pure-functions
 [idiom-3]: http://alvinalexander.com/scala/scala-idiom-immutable-code-functional-programming-immutability
 [idiom-4]: http://alvinalexander.com/scala/scala-idiom-methods-functions-no-side-effects
+
 
