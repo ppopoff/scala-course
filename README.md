@@ -2,43 +2,44 @@ Functional programming principles in Scala
 ==========================================
 
 ## What this course is all about?
-This course is not only about Scala. Scala is complicated language, and
-it will be impossible to cover all syntactic features in the scope of this
-course. And we're not even trying. If you want to learn all syntactic elements
-of the language, I would propose you to study them by yourself.
+This course is not only about Scala. Scala is complicated language: which means
+that it will be impossible to cover all syntactic features in the scope of this
+course. And we're not even trying. If you wish to learn all syntactic elements
+of the language, you'd better find a huge book for the job.
 
-The target of this course is to teach you functional thinking. Because it is
-the most sophisticated thing you may face with, while programming in Scala.
-Scala is widely adopted language in the industry. It resembles parts of
-classical Object-oriented programming and elements of Functional programming.
-It has glide learning curve. That's why Scala is used as a host language for
-this course.
+The target of this course is to teach you some basics of functional thinking. Because it is
+the most sophisticated thing you may possibly face with, while programming in Scala.
+Scala is widely adopted language in the industry. It resembles parts of classical
+Object-oriented programming and elements of Functional programming. It has glide learning curve.
+That's why Scala is used as a host language for this course.
 
 
 ## Preconditions
 We assume that you learned the basics of Object-Oriented programming. We expect
 you to know the differences between classes and objects, abstract classes and
-interfaces, knowledge of gang of four patterns like singleton or factory.
+interfaces, knowledge of some of the "Gang of four" patterns like singleton or factory.
 It could be great if you already know what is lambda expression or high-order
 functions. But this knowledge is not required.
 If you know the various differences between different types of morphisms. If you
 know differences between isomorphism and catamorphism, you better to check
 another course. And yes. It was the last time I used those words. Trust me!
-(fingers crossed)
 
 
-## The course organization
-The course consists of tho parts: textbook and codebook.
-Textbook contains a number of chapters that are represented as markdown files.
-Each chapter contains a number of parts that contain theoretical materials, and
-assignments in `assignment.md` file.
+## The course structure and organization
+The course consists of three parts: textbook, codebook and the studying plan (this page obviously).
+Textbook contains a number of chapters that are represented as markdown files. Each chapter contains a number of parts that contain theoretical materials, and assignments in `assignment.md` file.
 
   1. the Textbook consists of
     - a number of topics that contain theoretical materials that will be enough
       to complete the practical part of the course.
     - hyperlinks to various resources where you can read more about the topic
-  2. Code book contains a set of templates for practical part.
+  2. Code book contains a set of templates with stubs for practical part.
 
+
+## The timeline
+It shouldn't take more than 2-3 weeks to complete the course with it's assignments.
+The Studying plan contains a bird eye's view on the whole program, please check it
+first.
 
 ## How to view the course materials.
 To view `Markdown` text you can:
@@ -51,17 +52,25 @@ To view `Markdown` text you can:
 You can also use the script that is located inside `assembly` directory to
 build HTML file. But you must have UNIX environment and `pandoc` installed.
 
-## The course structure
+## The studying plan
 Before you start completing the exercises you should definitely read the course
-material. Course contains a number of chapters:
+material. We scheduled all the matherials by weeks:
 
+Week 1:
   - [Chapter 0. Beginning Scala](textbook/en/ch0_beginning_scala)
+  - Assignment 1: The word counter
+
+Week 2:
   - [Chapter 1. Pattern matching](textbook/en/ch1_pattern_matching)
   - [Chapter 2. Types, Data, Data Structures](textbook/en/ch2_types_data_datastructures)
   - [Chapter 3. Functional Thinking](textbook/en/ch3_functional_thinking)
   - [Chapter 4. Collections and Comprehensions](textbook/en/ch4_collections_and_forcomps)
+  - Assignment 2: Your small collection library
+
+Week3:
   - [Chapter 5. Out of standard library](textbook/en/ch5_out_of_standard_library)
   - [Chapter 6. Conclusion](textbook/en/ch6_conclusion)
+  - Assignment 3: Trees
 
 And now, let's take a closed look to each chapter:
 
@@ -100,6 +109,8 @@ Here you will meet `Shapeless`, `cats` and `scalaz`.
 
 ### Chapter 6. Conclusion
 Contains a number of links with sources for further reading.
+
+
 
 ## Feedback
 If you have any questions you can ask them directly - just open an issue and we
