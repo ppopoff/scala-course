@@ -1,60 +1,28 @@
-Задания для главы 4
-===================
+Collections 
 
-## Рефакторинг MyList
-### Каждый список должен знать свое место
-Ознакомьтесь со структурой наследования коллекций в стандартной библиотеке
-коллекций `Scala`, и найдите подходящее место для вашего списка. Выполните
-наследование от трейтов, которые считаете нужными.
+You should implement two types of immutable collections: 
 
+  * immutable.List 
+  * immutable.Map 
 
-### Реализация новых методов:
-Добавьте следующие методы к вашему списку:
+Though it may sound like a walk in a park it won't be that easy. We imposed some conditions and limitations to make it even more exciting and fun. 
 
-    def reduce [A1 >: A] (operator: (A1, A1) => A1): A1
+How it must be done: 
 
-### Переименование методов
-Переименуйте некоторые методы для того чтобы они соответствовали иерархии
-наследования системы коллекций. Добавьте минимальное количество недостающих
-методов.
+ - List should be implemented as a case class inherited sealed traits 
+ - Both collections should implement own apply and unapply methods 
+ - Use currying aka partial applications for some high-order functions 
+ - Both collections should implement map, flatMap, filter and withFilter methods, and size optimization: each call for .size or .length method must return the value in O(1). 
+ - Map should use our own implementation of list for buckets. 
 
-### for-comp
-Для вашего списка, реализуйте методы, необходимые для использования
-`for comprehensions`. Посмотрите как это сделано в стандартной библиотеке
-`Scala`.
+## Conditions and limitations: 
 
+ - You're limited in the usage of if expression to its absolute elimination. Ifs are simple -- use pattern matching instead. 
+ - No loops. Use recursion, create your own map/filter methods but please, do not use any loops at all, with the only exception: you can use the loop syntax if it's relying on our own implementation of map, flatMap or withFilter methods. 
+ - Build this artifact as a library and publish it locally. 
 
-## Общие задачи на коллекции
-Дан список телевизоров, с различными характеристиками:
+## Bonus: 
+ - And as a bonus you may try to embed your collection to the existing collections framework 
+ - As the addtional bonus you may use ScalaCheck to test your collections. That could possibly make your testing process easier. 
 
- - Определите, есть ли в заданном ассортименте телевизор, который
-   удовлетворяет вашим требованиям. Мы надеемся на вашу изыскательность
-   и ожидаем что вы укажете не менее 5 параметров поиска.
- - Найдите Top-5 телевизоров с минимальной ценой дюйма, рядом с каждым
-   отобранным телевизором, должен быть выведен его порядковый номер
-   (от 1 до 5), результат должен быть представлен в виде `Map[Int, TV]`.
- - Посчитайте количество 40 дюймовых телевизоров, предоставляемых каждым
-   производителем, результат отобразите в виде:
-   `Map[Vendor <: String, Count <: Int]`
- - Отобразите телевизоры, с максимальным рейтингом из заданной диапазоном
-   ценовой категории, и выведите их группами по 3 телевизора (представьте,
-   что больше не помещается на страница).
- - Реализуйте функцию, которая для моделей телевизоров заданного
-   производителя, начинающихся по заданной маске поднимает цену на заданный
-   процент.
- - Посчитайте средний рейтинг для всех телевизоров по заданному размеру
-   диагонали для каждого из производителей отдельно и выведите список
-   производителей в соответствии со средним рейтингом.
-
-
-## Генераторы списков
-Скопируйте телевизоры, из заранее заготовленного списка в созданный вами
-список и используя генераторы списков, выполните следующие задания:
-
-  - Отфильтруйте телевизоры, с диагональю больше 55 дюймов.
-  - TODO:
-
-
-## Генераторы списков
-Для вашего списка, реализуйте все методы, необходимые для работы
-`For comprehension`. Напишите тесты, подтверждающие это.
+And of course, your code should be tested. 
