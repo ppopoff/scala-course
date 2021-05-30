@@ -26,14 +26,14 @@ another course. And yes. It was the last time I used those words. Trust me!
 
 
 ## The course structure and organization
-The course consists of three parts: textbook, codebook and the studying plan (this page obviously).
-Textbook contains a number of chapters that are represented as markdown files. Each chapter contains a number of parts that contain theoretical materials, and assignments in `assignment.md` file.
+The course consists of three parts: textbook, codebook and this page which contains studying plan.
+Textbook contains a number of chapters that are represented as markdown files. Each chapter contains a number of parts that contain theoretical materials. Soma chapters contain assignments.
 
   1. the Textbook consists of
     - a number of topics that contain theoretical materials that will be enough
       to complete the practical part of the course.
     - hyperlinks to various resources where you can read more about the topic
-  2. Code book contains a set of templates with stubs for practical part.
+  2. Code book contains a set of examples and stubs for the first two assignments.
 
 
 ## The timeline
@@ -58,19 +58,19 @@ material. We scheduled all the matherials by weeks:
 
 Week 1:
   - [Chapter 0. Beginning Scala](textbook/en/ch0_beginning_scala)
-  - Assignment 1: The word counter
+  - [Assignment 1: The word counter](textbook/en/ch0_beginning_scala/assignment.md)
 
 Week 2:
   - [Chapter 1. Pattern matching](textbook/en/ch1_pattern_matching)
   - [Chapter 2. Types, Data, Data Structures](textbook/en/ch2_types_data_datastructures)
   - [Chapter 3. Functional Thinking](textbook/en/ch3_functional_thinking)
   - [Chapter 4. Collections and Comprehensions](textbook/en/ch4_collections_and_forcomps)
-  - Assignment 2: Your small collection library
+  - [Assignment 2: Your small collection library](textbook/en/ch4_collections_and_forcomps/assignment.md)
 
 Week3:
   - [Chapter 5. Out of standard library](textbook/en/ch5_out_of_standard_library)
   - [Chapter 6. Conclusion](textbook/en/ch6_conclusion)
-  - Assignment 3: Trees
+  - [Assignment 3: Trees](textbook/en/ch6_conclusion/assignment.md)
 
 And now, let's take a closed look to each chapter:
 
