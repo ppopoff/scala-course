@@ -27,7 +27,9 @@ another course. And yes. It was the last time I used those words. Trust me!
 
 ## The course structure and organization
 The course consists of three parts: textbook, codebook and this page which contains studying plan.
-Textbook contains a number of chapters that are represented as markdown files. Each chapter contains a number of parts that contain theoretical materials. Soma chapters contain assignments.
+Textbook contains a number of chapters that are represented as markdown files.
+Each chapter contains a number of parts that contain theoretical materials. Some chapters contain
+assignments.
 
   1. the Textbook consists of
     - a number of topics that contain theoretical materials that will be enough
@@ -52,9 +54,14 @@ To view `Markdown` text you can:
 You can also use the script that is located inside `assembly` directory to
 build HTML file. But you must have UNIX environment and `pandoc` installed.
 
+## Exercises
+Each assignment should be arranged in a separate project. Code book doesn't assume
+that you will continue your work there. It should stay immutable :)
+
+
 ## The studying plan
 Before you start completing the exercises you should definitely read the course
-material. We scheduled all the matherials by weeks:
+material. We scheduled all the materials by weeks:
 
 Week 1:
   - [Chapter 0. Beginning Scala](textbook/en/ch0_beginning_scala)
@@ -75,41 +82,41 @@ Week3:
 And now, let's take a closed look to each chapter:
 
 ### Chapter 0. Beginning Scala
-Here you will learn basics of Scala. And I am talking about the syntax. When you
-done, you can implement the simple `CLI` application that mimicries one of the
-very famous program from `coreutils` package.
+Here you will learn the basics of Scala. And I am talking about the syntax. When you
+done, you can implement a simple and quite famous `CLI` application.
 
 ### Chapter 1. Pattern Matching
-This chapter will you a better understanding of the most powerful syntactic
+This chapter will give you better understanding of the most powerful syntactic
 features of `Scala` (and other functional languages). For many of you it may
 look like a simple variation of `switch/case` statement that behaves like an
 expression. It is true and false. Pattern matching is much more complicated than
-you may think. You will have to finish some recursion exercises that are
-represented at the end of the chapter.
+you might think.
 
 ### Chapter 2. Types, Data, Data Structures
 Lots of languages contain compound data structures, like lists or tuples.
-`Scala` is not an exception. You will also learn about Scala's records which
-are called `case class`es.
+`Scala` is not an exception. You will also learn about Scala's version of
+records. They used to be called `case class`.
 
 ### Chapter 3. Functional Thinking
 That's the place where you will learn about currying, immutability, function
-composition and other concepts of functional programming
+composition and other basic concepts of functional programming
 
 ### Chapter 4. Collections and Comprehensions
-In chapter you will learn more about Scala's collections library. Knowledge
-of collections library will help you to master `Apache Spark` which can be a
-pretty good thing in your toolbox. You will also learn more about
-list-comprehensions aka generators.
+In this chapter you will learn more about Scala's collections library. This
+knowledge will help you to master `Apache Spark` which can be a
+pretty useful tool in your arsenal. You will also learn more about
+list-comprehensions aka generators. And at the end of this chapter there'll be an
+assignment for you.
 
 ### Chapter 5. Out of standard library
-In this chapter you will learn functional concepts that are not present in
-Scala's standard library, like lenses, type classes or h-lists.
-Here you will meet `Shapeless`, `cats` and `scalaz`.
+In this chapter you will learn functional concepts which are not represented in
+the Scala's standard library, like lenses, type classes or h-lists.
+Here you will meet `Shapeless`, `cats` and `scalaz`. At least those will be
+mentioned.
 
 ### Chapter 6. Conclusion
-Contains a number of links with sources for further reading.
-
+Contains a number of links with sources for further reading and the final
+assignment.
 
 
 ## Feedback
