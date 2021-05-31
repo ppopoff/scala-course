@@ -66,15 +66,13 @@ material. We scheduled all the materials by weeks:
 Week 1:
   - [Chapter 0. Beginning Scala](textbook/en/ch0_beginning_scala)
   - [Assignment 1: The word counter](textbook/en/ch0_beginning_scala/assignment.md)
-
-Week 2:
   - [Chapter 1. Pattern matching](textbook/en/ch1_pattern_matching)
   - [Chapter 2. Types, Data, Data Structures](textbook/en/ch2_types_data_datastructures)
   - [Chapter 3. Functional Thinking](textbook/en/ch3_functional_thinking)
   - [Chapter 4. Collections and Comprehensions](textbook/en/ch4_collections_and_forcomps)
-  - [Assignment 2: Your small collection library](textbook/en/ch4_collections_and_forcomps/assignment.md)
 
-Week3:
+Week 2:
+  - [Assignment 2: Your small collection library](textbook/en/ch4_collections_and_forcomps/assignment.md)
   - [Chapter 5. Out of standard library](textbook/en/ch5_out_of_standard_library)
   - [Chapter 6. Conclusion](textbook/en/ch6_conclusion)
   - [Assignment 3: Trees](textbook/en/ch6_conclusion/assignment.md)
