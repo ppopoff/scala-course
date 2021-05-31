@@ -27,3 +27,19 @@ How it must be done:
  - As the addtional bonus you may use ScalaCheck to test your collections. That could possibly make your testing process easier. 
 
 And of course, your code should be tested. 
+
+
+## Further reading
+Try to use tail recursion when possible. The `@tailrec` annotation will help
+you. You can read more about tail calls [here]
+
+[Here][trampolines] you may read about trampolines and [here][scala-rec-fun]
+about the ways they can be useful in `Scala`.
+
+A very interesting article on [Dr. Dobbs's][tcall-opt] website. You may read
+there about specifics of tail recursion implementation for JVM.
+
+[tail-call]: https://en.wikipedia.org/wiki/Tail_call
+[trampolines]: http://blog.richdougherty.com/2009/04/tail-calls-tailrec-and-trampolines.html
+[scala-rec-fun]: http://fruzenshtein.com/scala-recursive-function/
+[tcall-opt]: http://www.drdobbs.com/jvm/tail-call-optimization-and-java/240167044
