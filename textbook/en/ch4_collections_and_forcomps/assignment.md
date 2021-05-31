@@ -14,7 +14,9 @@ How it must be done:
  - Both collections should implement own apply and unapply methods 
  - Use currying aka partial applications for some high-order functions 
  - Both collections should implement map, flatMap, filter and withFilter methods, and size optimization: each call for .size or .length method must return the value in O(1). 
- - Map should use our own implementation of list for buckets. 
+ - Map should use our own implementation of list for buckets.
+
+[Here](/codebook/main/ch2/List.scala) you may find a snippet for List. You're free to use it. Map should be implemented in a similar manner
 
 ## Conditions and limitations: 
 
