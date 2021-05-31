@@ -11,6 +11,8 @@ You should write your own implementation of the famous and legendary unix utilit
 
 We encourage you to use scala.io.Source and recursion when it's possible. The utility should be built as a jar file, by [scala build tool][SBT]. Please cover parts of your code with [ScalaTest][scala-test]. It has a huge variety of Spec types. You may choose any suitable for you.
 
+[Here](/codebook/main/ch0/WordCount.scala) you may find a snippet that will help.
+
 
 ## Before you begin
 Please read about one very notable trait from the standard library. The trait is called `DelayedInit`. More details [here][delayed-init].
