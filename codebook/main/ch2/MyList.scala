@@ -1,8 +1,7 @@
 package scalacourse
 package ch2
 
-trait MyList [+A] {
-
+trait List [+A] {
   def size: Long
   def isEmpty: Boolean
 
@@ -32,16 +31,37 @@ trait MyList [+A] {
 
   // appends element to the beginning of list
   def cons(a: A): List[A]
+  
+  // High order functions
+  // Recursively implement the following methods:
+  def map [B] (f: (A) => B): List[B]
+  def filter (predicate: (A) => Boolean): MyList[A]
+
+  def count(predicate: (A) => Boolean): Int
+  def find (predicate: (A) => Boolean): Option[A]
+  def exists(predicate: (A) => Boolean): Boolean
+  
+  // Partial function
+  // creates a new collection by its partial application to all elements
+  // of given list where this function is defined
+  def collect(pfun: PartialFunction[A,B]): MyList[B]
+  
+  // Currying
+  def foldLeft [B] (z: B) (operator: (B, A) => B): B
+  def foldRight [B] (z: B) (operator: (A, B) => B): B
 }
 
 
-object MyList {
+object List {
   def apply (items: A**) = ???
 
 
   def fill [T] (value: T)(size: Int) = ???
   def empty: MyList = ???
 }
+
+// case class Cons() extends List[+A]
+// case class Nil() extends List[+A]
 
 
 // something else is also missing ;)?
