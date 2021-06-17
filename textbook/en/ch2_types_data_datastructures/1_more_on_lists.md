@@ -31,7 +31,7 @@ can pattern match list items, so there no need to call `head/tail` explicitly:
 
     def printRec(list: List[String]): Unit = list match {
       case Nil  => ()
-      case x:xs => println(x)
+      case x::xs => println(x)
                    printRec(xs)
     }
 
