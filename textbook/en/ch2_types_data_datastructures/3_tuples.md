@@ -144,7 +144,7 @@ Sometimes we need to update one or couple of tuple elements. You can use `copy`
 method to do the job:
 
     val dog = ("Rex", 13)
-    val olderDog = tuple.copy(_2 = 14)
+    val olderDog = dog.copy(_2 = 14)
 
 
 Further reading
